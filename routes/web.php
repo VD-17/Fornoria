@@ -49,6 +49,7 @@ Route::post('/payment/notify', [PaymentController::class, 'notify'])->name('paym
 // Route::post('/', [ReservationController::class, 'store'])->name('res.book');
 // Route::get('/reservation', [ReservationController::class, 'myres_index'])->name('myres.index');
 // Route::delete('/reservation/{res}', [ReservationController::class ,'cancel_res'])->name('res.cancel');
+Route::get('/reservation', [ReservationController::class, 'myres_index'])->name('myres.index');
 
 // Contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
@@ -58,7 +59,6 @@ Route::post('/contact', [ContactController::class, 'send'])->name('contact.send'
 Route::middleware(['auth', 'user'])->group(function () {
 
     // Home / Reservation
-    Route::get('/reservation', [ReservationController::class, 'myres_index'])->name('myres.index');
     Route::post('/', [ReservationController::class, 'store'])->name('res.book');
     Route::delete('/reservation/{res}', [ReservationController::class, 'cancel_res'])->name('res.cancel');
 
