@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class MenuController extends Controller
                 'itemName' => ['required', 'string', 'max:255'],
                 'ingredients' => ['required', 'string'],
                 'price' => ['required', 'numeric', 'min:0'],
-                'image' => ['required', 'image', 'mimes:jpeg, png, jpg, webp', 'max:2048'],
+                'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp','max:2048'],
                 'category' => ['required', 'string']
             ]
         );

@@ -61,9 +61,9 @@
                     <label for="category">Category</label>
                     <div class="select-wrap">
                         <select id="item_category" name="category" required>
-                            <option value="pizza">Starters</option>
-                            <option value="pasta">Pizzas</option>
-                            <option value="salad">Drinks</option>
+                            <option value="starters">Starters</option>
+                            <option value="pizzas">Pizzas</option>
+                            <option value="drinks">Drinks</option>
                             <option value="dessert">Desserts</option>
                         </select>
                         <i class="fa-solid fa-chevron-down select-icon"></i>
