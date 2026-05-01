@@ -1,0 +1,153 @@
+body {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.track-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    gap: 40px;
+    min-height: calc(100vh - 80px);
+}
+
+/* Title box — inherits .title from app.css, just needs margin */
+.track-order .title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+}
+
+/* Main tracking card */
+.tracking {
+    background-color: var(--light);
+    border-radius: 12px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Ref row: order ID left, date right */
+.ref {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--primary);
+    opacity: 0.75;
+}
+
+/* Status section */
+.track-status {
+    display: flex;
+    justify-content: center;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.status i {
+    font-size: 1.6rem;
+    color: var(--success);
+}
+
+.status span {
+    color: var(--success);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+}
+
+/* Order details row: item name + price left, cancel button right */
+.order-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    gap: 16px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.details p {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.details span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* Cancel button */
+.cancel-btn button {
+    background: transparent;
+    border: 1.5px solid var(--title-border);
+    color: var(--primary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+}
+
+.cancel-btn button:hover {
+    background: var(--title-border);
+    color: var(--primary);
+}
+
+@media (max-width: 600px) {
+    .tracking {
+        padding: 20px 16px;
+    }
+
+    .ref {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 4px;
+        font-size: 0.82rem;
+    }
+
+    .track-order .title {
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+    }
+
+    .order-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cancel-btn {
+        width: 100%;
+    }
+
+    .cancel-btn button {
+        width: 100%;
+        text-align: center;
+    }
+}

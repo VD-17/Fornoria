@@ -1,0 +1,189 @@
+.reservations {
+    background-color: var(--light);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 8px var(--shadow);
+    margin: 20px;
+}
+
+.table-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.table-title i {
+    color: var(--secondary);
+    font-size: 1.1rem;
+}
+
+.table-title h5 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin: 0;
+}
+
+.reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+}
+
+.reservation-table thead tr {
+    border-bottom: 2px solid var(--border);
+}
+
+.reservation-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.88rem;
+    font-family: var(--font-body);
+}
+
+.reservation-table td {
+    padding: 12px 14px;
+    color: var(--primary);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-body);
+}
+
+.reservation-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.reservation-table tbody tr:hover {
+    background-color: rgba(191, 186, 178, 0.15);
+}
+
+.no-res {
+    text-align: center;
+    color: var(--border);
+    font-style: italic;
+    padding: 30px 0 !important;
+    font-family: var(--font-body);
+}
+
+/* ── Status badge ── */
+.status-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    border: 1.5px solid var(--border);
+    color: var(--primary);
+    background-color: transparent;
+    text-transform: capitalize;
+}
+
+.status-badge.status-confirmed {
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.status-badge.status-cancelled {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.status-badge.status-pending {
+    border-color: var(--border);
+    color: var(--primary);
+}
+
+/* ── Action buttons ── */
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 0.95rem;
+    transition: opacity 0.15s ease;
+}
+
+.action-btn:hover {
+    opacity: 0.7;
+}
+
+.confirm-btn i {
+    color: var(--success);
+}
+
+.cancel-btn i {
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .reservations {
+        margin: 12px;
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .reservation-table thead {
+        display: none;
+    }
+
+    .reservation-table tbody tr {
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 8px;
+    }
+
+    .reservation-table tbody tr:last-child td {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .reservation-table tbody tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .reservation-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 10px;
+        border-bottom: 1px dashed var(--border);
+        font-size: 0.85rem;
+    }
+
+    .reservation-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* Label each cell using data-label attribute */
+    .reservation-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--primary);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        flex-shrink: 0;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reservations {
+        margin: 8px;
+        padding: 12px;
+    }
+
+    .table-title h5 {
+        font-size: 0.95rem;
+    }
+
+    .status-badge {
+        font-size: 0.72rem;
+        padding: 2px 8px;
+    }
+}

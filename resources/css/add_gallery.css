@@ -1,0 +1,418 @@
+.add-item {
+    min-height: 100vh;
+    padding: 2rem 2.5rem;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.gallery-topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.gallery-meta h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--light);
+    padding-bottom: 0.25rem;
+}
+
+.gallery-meta p {
+    font-size: 0.9rem;
+    color: #d1cec9;
+}
+
+.add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.25rem;
+    background-color: var(--secondary);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    flex-shrink: 0;
+}
+
+.add-btn:hover {
+    background-color: #b8623f;
+    transform: translateY(-1px);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+.display-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1.5rem;
+}
+
+.display-gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 4px 16px var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.empty-state {
+    color: #d1cec9;
+    font-size: 0.95rem;
+    grid-column: 1 / -1;
+}
+
+.gallery-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px var(--deep-shadow);
+}
+
+.gallery-card-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 10px;
+}
+
+.gallery-card:hover .gallery-card-overlay {
+    opacity: 1;
+}
+
+/* ✅ Always show overlay on touch devices */
+@media (hover: none) {
+    .gallery-card-overlay {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .gallery-delete-btn {
+        transform: scale(1);
+    }
+}
+
+.gallery-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transform: scale(0.8);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-card:hover .gallery-delete-btn {
+    transform: scale(1);
+}
+
+.gallery-delete-btn:hover {
+    background-color: #a01830;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--light);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 460px;
+    padding: 1.75rem 2rem 1.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.25s ease;
+}
+
+.modal-overlay.is-open .modal {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+    padding-bottom: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.modal-close:hover {
+    color: var(--accent);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.modal-form input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(204, 115, 87, 0.18);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.select-wrap {
+    position: relative;
+}
+
+.select-wrap select {
+    width: 100%;
+    padding: 0.55rem 2rem 0.55rem 0.85rem;
+    background-color: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--primary);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    box-sizing: border-box; /* ✅ prevents overflow */
+}
+
+.select-wrap select:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(204, 115, 87, 0.18);
+}
+
+.select-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: #888;
+    pointer-events: none;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.85rem;
+    background-color: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #888;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.upload-label:hover {
+    border-color: var(--secondary);
+    background-color: #fff5ee;
+}
+
+.upload-label i {
+    font-size: 0.95rem;
+    color: var(--secondary);
+}
+
+.upload-input {
+    display: none;
+}
+
+.upload-hint {
+    font-size: 0.75rem;
+    color: var(--secondary);
+    min-height: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.btn-cancel {
+    padding: 0.55rem 1.4rem;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.btn-submit {
+    padding: 0.55rem 1.4rem;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-submit:hover {
+    background-color: #b8623f;
+    transform: translateY(-1px);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+    .add-item {
+        padding: 1.5rem 1.75rem;
+    }
+
+    .display-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+/* ── Phone ── */
+@media (max-width: 767px) {
+    .add-item {
+        padding: 1rem;
+    }
+
+    .gallery-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .gallery-meta h3 {
+        font-size: 1.3rem;
+    }
+
+    .add-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.65rem 1rem;
+    }
+
+    .display-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* ── Small Phone ── */
+@media (max-width: 500px) {
+    .modal {
+        padding: 1.25rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}

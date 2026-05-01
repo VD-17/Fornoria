@@ -1,0 +1,214 @@
+/* Profile Page Layout */
+.profile {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Card Style - Shared by all sections */
+.profile > div {
+    background-color: var(--light);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* Section Headings */
+.profile h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    padding-bottom: 16px;
+    margin-bottom: 4px;
+}
+
+/* ─── Edit Profile ─── */
+.edit-profile .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.edit-profile .form-group label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.edit-profile .form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background-color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--primary);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.edit-profile .form-group input::placeholder {
+    color: #aaa;
+}
+
+.edit-profile .form-group input:focus {
+    border-color: var(--secondary);
+}
+
+/* Submit Button */
+.edit-profile .submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.edit-profile .submit button {
+    background-color: var(--secondary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.edit-profile .submit button:hover {
+    background-color: #b5603f;
+}
+
+.edit-profile .submit button:active {
+    transform: scale(0.98);
+}
+
+/* ─── Sign Out ─── */
+.sign-out form {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.sign-out button {
+    background-color: var(--secondary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.sign-out button:hover {
+    background-color: #b5603f;
+}
+
+.sign-out button:active {
+    transform: scale(0.98);
+}
+
+/* ─── Change Password ─── */
+.change-password .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.change-password .form-group label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.change-password .form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background-color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--primary);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.change-password .form-group input:focus {
+    border-color: var(--secondary);
+}
+
+/* ─── Change Password ─── */
+.change-password .submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.change-password .submit button {
+    background-color: var(--secondary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.change-password .submit button:hover {
+    background-color: #b5603f;
+}
+
+.change-password .submit button:active {
+    transform: scale(0.98);
+}
+
+/* ─── Delete Account ─── */
+.delete-account button {
+    display: block;
+    margin: 4px auto 0;
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.delete-account button:hover {
+    background-color: #a01830;
+}
+
+.delete-account button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 480px) {
+    .profile {
+        margin: 16px auto;
+        padding: 16px;
+    }
+
+    .profile > div {
+        padding: 18px;
+    }
+}

@@ -1,0 +1,167 @@
+.reservation {
+    min-height: 100vh;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+/* ── Cards Wrapper ── */
+.reservation-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 340px;
+    align-self: flex-start;
+    margin-left: 20px;
+}
+
+/* ── Individual Card ── */
+.res-card {
+    background-color: var(--light);
+    border-radius: 12px;
+    padding: 30px 24px 24px 24px;
+    position: relative;
+    box-shadow: 0 4px 20px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ── Status Badge ── */
+.status {
+    position: absolute;
+    top: -16px;
+    left: 20px;
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    color: #fff;
+    background-color: var(--secondary); /* default */
+}
+
+.status.confirmed,
+.status.confirm {
+    background-color: var(--secondary);
+}
+
+.status.pending {
+    background-color: #E8A838;
+}
+
+.status.cancelled {
+    background-color: var(--accent);
+}
+
+/* ── Reservation Details ── */
+.res-details {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.res-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.res-details p {
+    font-size: 0.95rem;
+    color: var(--primary);
+    line-height: 1.6;
+}
+
+.res-details .label {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ── Cancel Button ── */
+.cancel-btn {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.cancel-btn form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cancel-btn button {
+    padding: 8px 36px;
+    background: transparent;
+    border: 2px solid var(--title-border);
+    border-radius: 6px;
+    color: var(--primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cancel-btn button:hover {
+    background-color: var(--title-border);
+    color: var(--primary);
+}
+
+/* ── Empty State ── */
+.no-reservations {
+    color: var(--light);
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .reservation {
+        padding: 40px 20px;
+        gap: 30px;
+        min-height: unset;
+    }
+
+    .reservation-items {
+        max-width: 100%;
+        margin-left: 0;
+        align-self: stretch;
+    }
+
+    .reservation .title {
+        font-size: 1.2rem;
+        padding: 12px 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reservation {
+        padding: 30px 14px;
+        gap: 20px;
+    }
+
+    .res-card {
+        padding: 28px 16px 18px;
+    }
+
+    .res-name {
+        font-size: 1rem;
+    }
+
+    .res-details p {
+        font-size: 0.88rem;
+    }
+
+    .cancel-btn button {
+        width: 100%;
+        padding: 10px 0;
+    }
+}

@@ -1,0 +1,140 @@
+body {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.track-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    gap: 40px;
+    min-height: calc(100vh - 80px);
+}
+
+.track-order .title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+}
+
+/* Tracking container — wraps all order cards */
+.tracking {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 680px;
+}
+
+/* Individual order card */
+.order {
+    background-color: var(--light);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Ref row: order ID left, date right */
+.ref {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Details section */
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.details p {
+    font-size: 0.9rem;
+    color: var(--primary);
+    line-height: 1.6;
+}
+
+/* "Item:", "Total:", "Payment Type:" labels — normal weight */
+.details p .label {
+    font-weight: 400;
+    color: var(--primary);
+}
+
+/* Total amount value in accent red */
+.details .total-value {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* Re-Order button */
+.reorder-btn {
+    display: flex;
+    align-items: flex-start;
+}
+
+.reorder-btn button {
+    background-color: var(--secondary);
+    border: none;
+    color: var(--light);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 9px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.reorder-btn button:hover {
+    background-color: #b8633f;
+}
+
+.reorder-btn button:active {
+    transform: scale(0.97);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .track-order {
+        padding: 36px 16px;
+        gap: 28px;
+    }
+
+    .track-order .title {
+        font-size: 1.2rem;
+    }
+
+    .order {
+        padding: 18px 16px;
+    }
+
+    .ref {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+}
+
+@media (max-width: 380px) {
+    .track-order {
+        padding: 24px 12px;
+    }
+
+    .order {
+        padding: 14px 12px;
+    }
+
+    .reorder-btn button {
+        width: 100%;
+        text-align: center;
+    }
+}

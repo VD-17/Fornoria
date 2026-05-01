@@ -1,0 +1,120 @@
+.about-container {
+    min-height: 100vh;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.about-container .title {
+    align-self: center;
+    font-family: var(--font-heading);
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+}
+
+/* Main about section - two column layout */
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-left: 130px;
+}
+
+.about-details {
+    /* flex: 1; */
+    max-width: 420px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 20px;
+}
+
+.about-details h2 {
+    color: var(--light);
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: var(--font-heading);
+}
+
+.about-details p {
+    color: #c8c0b8;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+/* Right side - image */
+.res-image {
+    /* flex: 1.2; */
+    max-width: 620px;
+}
+
+.res-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+    .about-container {
+        padding: 60px 40px;
+    }
+
+    .about {
+        gap: 40px;
+    }
+
+    .about-details h2 {
+        font-size: 2rem;
+    }
+
+    .res-image img {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 40px 24px;
+        align-items: center;
+    }
+
+    .about {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-details {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .res-image {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .res-image img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-details h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-details p {
+        font-size: 0.85rem;
+    }
+}
