@@ -1,0 +1,110 @@
+{
+    "name": "Fornoria Pizza",
+    "short_name": "Fornoria",
+    "description": "Order authentic pizza, make reservations, and track your orders at Fornoria.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#1a0a00",
+    "theme_color": "#c0392b",
+    "categories": ["food", "restaurant", "lifestyle"],
+    "lang": "en",
+    "icons": [
+        {
+        "src": "{{ asset('images/icons/icon-72x72.png') }}",
+        "sizes": "72x72",
+        "type": "image/png",
+        "purpose": "maskable any"
+        },
+        {
+        "src": "images/icons/icon-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png",
+        "purpose": "maskable any"
+        },
+        {
+        "src": "images/icons/icon-128x128.png",
+        "sizes": "128x128",
+        "type": "image/png",
+        "purpose": "maskable any"
+        },
+        {
+        "src": "images/icons/icon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png",
+        "purpose": "maskable any"
+        },
+        {
+        "src": "images/icons/icon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png",
+        "purpose": "maskable any"
+        },
+        {
+        "src": "images/icons/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable any"
+        },
+        {
+        "src": "images/icons/icon-384x384.png",
+        "sizes": "384x384",
+        "type": "image/png",
+        "purpose": "maskable any"
+        },
+        {
+        "src": "images/icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable any"
+        }
+  ],
+    "screenshots": [
+        {
+            "src": "/images/screenshots/home.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Home page - browse our menu"
+        },
+        {
+            "src": "/images/screenshots/menu.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Order your favourite pizza"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Order Now",
+            "short_name": "Order",
+            "description": "Jump straight to the menu and order",
+            "url": "/home#menu",
+            "icons": [{ "src": "images/icons/icon-96x96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "My Cart",
+            "short_name": "Cart",
+            "description": "View your current cart",
+            "url": "/cart",
+            "icons": [{ "src": "images/icons/icon-96x96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Track Order",
+            "short_name": "Track",
+            "description": "Track your active order",
+            "url": "/track",
+            "icons": [{ "src": "images/icons/icon-96x96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Reserve a Table",
+            "short_name": "Reserve",
+            "description": "Make a table reservation",
+            "url": "/reservation",
+            "icons": [{ "src": "images/icons/icon-96x96.png", "sizes": "96x96" }]
+        }
+    ],
+    "prefer_related_applications": false
+}

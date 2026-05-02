@@ -128,7 +128,7 @@
                 <i class="fa-brands fa-instagram"></i>
                 <i class="fa-brands fa-twitter"></i>
             </div>
-            <div class="Install">
+            <div class="Install" id="pwa-install-btn">
                 <button>Install App</button>
             </div>
         </div>

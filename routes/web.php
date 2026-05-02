@@ -12,10 +12,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/about', [HomeController::class, 'about_index'])->name('about');
@@ -54,6 +50,24 @@ Route::get('/reservation', [ReservationController::class, 'myres_index'])->name(
 // Contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+// PWA routes
+Route::get('/manifest.json', function () {
+    return response()->file(public_path('manifest.json'), [
+        'Content-Type' => 'application/manifest+json',
+        'Cache-Control' => 'public, max-age=86400',
+    ]);
+});
+
+Route::get('/sw.js', function () {
+    return response()->file(public_path('sw.js'), [
+        'Content-Type'           => 'application/javascript',
+        'Cache-Control'          => 'no-cache, no-store, must-revalidate',
+        'Service-Worker-Allowed' => '/',
+    ]);
+});
+
+Route::get('/offline', fn() => view('offline'))->name('offline');
 
 // Authenticated User Routes
 Route::middleware(['auth', 'user'])->group(function () {
@@ -131,5 +145,3 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('admin/profile/change-password', [AuthController::class, 'change_password'])->name('admin.change.password');
     Route::delete('admin/profile/delete/{id}', [AuthController::class, 'delete_user'])->name('admin.profile.delete');
 });
-
-

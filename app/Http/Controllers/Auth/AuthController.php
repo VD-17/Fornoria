@@ -54,7 +54,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/home')->with('success', 'Welcome to Fornoria ' . $user->name);
+        return redirect('/')->with('success', 'Welcome to Fornoria ' . $user->name);
     }
 
     public function login(Request $request)
@@ -73,7 +73,7 @@ class AuthController extends Controller
                 return redirect()->intended('/dashboard')->with('success', 'Welcome back ' . $user->name);
             }
 
-            return redirect()->intended('/home')->with('success', 'Welcome back ' . $user->name);
+            return redirect()->intended('/')->with('success', 'Welcome back ' . $user->name);
         }
 
         return back()
@@ -185,7 +185,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     public function logout(Request $request)
