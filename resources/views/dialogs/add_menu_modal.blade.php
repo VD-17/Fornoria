@@ -64,7 +64,7 @@
                             <option value="starters">Starters</option>
                             <option value="pizzas">Pizzas</option>
                             <option value="drinks">Drinks</option>
-                            <option value="dessert">Desserts</option>
+                            <option value="desserts">Desserts</option>
                         </select>
                         <i class="fa-solid fa-chevron-down select-icon"></i>
                     </div>

@@ -6,7 +6,7 @@
     'showOrder' => false,
 ])
 
-<div class="menu-item">
+<div class="menu-item" data-category="{{ strtolower($item->category) }}">
     <div class="category-badge">
         <span>{{ $item->category }}</span>
     </div>

@@ -251,7 +251,7 @@
 
                     <div>
                         <!-- <i class="fa-solid fa-calendar"></i> -->
-                        <input type="date" name="date" value="{{old('date', now()->format('d-m-Y'))}}">
+                        <input type="date" name="date" value="{{old('date', now()->format('Y-m-d'))}}">
                         <span class="error">
                             @error('date')
                                 {{$message}}

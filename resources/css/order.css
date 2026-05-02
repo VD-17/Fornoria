@@ -109,7 +109,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 1rem 1rem 1.25rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.25s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .menu-item:hover {
@@ -123,12 +123,14 @@ body {
 
 .category-badge {
     position: absolute;
-    top: 14px;
-    left: -22px;
-    transform: rotate(-90deg);
+    top: 41%;
+    left: 5%;
+    transform: translateY(-50%) rotate(-90deg) translateX(50%);
+    transform-origin: left center;
     background-color: var(--secondary);
     padding: 3px 20px;
     border-radius: 4px;
+    z-index: 1;
 }
 
 .category-badge span {
@@ -195,7 +197,49 @@ body {
     justify-content: center;
 }
 
-.action-btn {
+.menu-actions form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.order-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 9px 0;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    background-color: var(--title-border);
+    color: var(--primary);
+    transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.order-btn:hover {
+    opacity: 0.88;
+    transform: scale(1.04);
+}
+
+.order-btn.added {
+    background-color: var(--success);
+    color: #fff;
+}
+
+.menu-actions-2 {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+}
+
+.action-btn-2 {
     padding: 8px 12px;
     border-radius: 6px;
     border: none;
@@ -218,17 +262,17 @@ body {
     color: #fff;
 }
 
-.action-btn:hover {
+.action-btn-2:hover {
     opacity: 0.85;
     transform: scale(1.05);
 }
 
-.menu-actions form {
+.menu-actions-2 form {
     margin: 0;
     padding: 0;
 }
 
-.order-btn {
+/* .order-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -241,7 +285,7 @@ body {
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.03em;
-    background-color: var(--title-border);   /* #F5C842 – yellow */
+    background-color: var(--title-border);
     color: var(--primary);
     transition: opacity 0.2s ease, transform 0.15s ease;
 }
@@ -254,7 +298,7 @@ body {
 .order-btn.added {
     background-color: var(--success);
     color: #fff;
-}
+} */
 
 .empty-state {
     grid-column: 1 / -1;
