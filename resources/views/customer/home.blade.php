@@ -145,7 +145,7 @@
         <div class="about-details">
             <p>OUR STORY</p>
             <h3>Every Flavour Tells A Story</h3>
-            <a href="">Read More</a>
+            <a href="{{ route('about')}}">Read More</a>
         </div>
         <div class="about-image">
             <img src="images/restaurant/about_image_3.jpeg" alt="">
