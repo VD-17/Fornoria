@@ -13,7 +13,7 @@
 @section('heading', 'Menu Management')
 
 @section('admin_page_content')
-    <div class="add-item">
+    <section class="add-item">
 
         <div class="menu-topbar">
             <div class="menu-meta">
@@ -39,7 +39,7 @@
                 <p class="empty-state">No menu items yet</p>
             @endforelse
         </div>
-    </div>
+    </section>
 
     @include('dialogs.add_menu_modal')
 

@@ -13,7 +13,7 @@
 @section('heading', 'Contact Forms')
 
 @section('admin_page_content')
-    <div class="reservations">
+    <section class="reservations">
         <table class="reservation-table">
             <thead>
                 <tr>
@@ -51,7 +51,7 @@
                 @endforelse
             </tbody>
         </table>
-    </div>
+    </section>
 
     @include('dialogs.form_modal')
 

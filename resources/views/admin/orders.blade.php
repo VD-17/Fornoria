@@ -9,7 +9,7 @@
 @section('heading', 'Orders')
 
 @section('admin_page_content')
-    <div class="dashboard-container">
+    <section class="dashboard-container">
         <!-- Recent orders  -->
         <div class="orders">
             <div class="table-title">
@@ -102,5 +102,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </section>
 @endsection

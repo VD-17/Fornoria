@@ -11,7 +11,7 @@
 @endpush
 
 @section('page_content')
-    <div class="order-container">
+    <section class="order-container">
         <div class="order-topbar">
             <div class="title">
                 ORDER
@@ -40,7 +40,7 @@
                 <p class="empty-state">No menu items available.</p>
             @endforelse
         </div>
-    </div>
+    </section>
 
     @include('components.cart_sidebar')
 @endsection

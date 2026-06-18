@@ -7,7 +7,7 @@
 @endpush
 
 @section('page_content')
-    <div class="reservation">
+    <section class="reservation">
         <div class="title">
             MY RESERVATIONS
         </div>
@@ -38,5 +38,5 @@
                 <p class="no-reservations">You have no reservations yet.</p>
             @endforelse
         </div>
-    </div>
+    </section>
 @endsection

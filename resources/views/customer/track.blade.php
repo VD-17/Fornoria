@@ -7,7 +7,7 @@
 @endpush
 
 @section('page_content')
-    <div class="track-order">
+    <section class="track-order">
         <div class="title">
             TRACK ORDER
         </div>
@@ -20,7 +20,7 @@
 
             <div class="track-status">
                 <div class="status">
-                    @if ($order->status === 'Preparing') 
+                    @if ($order->status === 'Preparing')
                         <i class="fa-solid fa-hourglass-start"></i>
                         <span>Preparing</span>
                     @elseif ($order->status === 'Out for Delivery')
@@ -55,5 +55,5 @@
                 @endif
             </div>
         </div>
-    </div>
+    </section>
 @endsection

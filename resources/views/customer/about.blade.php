@@ -7,7 +7,7 @@
 @endpush
 
 @section('page_content')
-    <div class="about-container">
+    <section class="about-container">
         <div class="title">
             ABOUT US
         </div>
@@ -37,5 +37,5 @@
         </div>
 
 
-    </div>
+    </section>
 @endsection

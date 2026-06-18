@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="register" style="background-image: url('{{ asset('images/restaurant/auth.png') }}')">
+    <section class="register" style="background-image: url('{{ asset('images/restaurant/auth.png') }}')">
         <div class="register-form">
             <div class="logo">
                 <img src="images/icons/fornoria_logo.png" alt="Fornoria">
@@ -60,5 +60,5 @@
             </p>
 
         </div>
-    </div>
+    </section>
 @endsection

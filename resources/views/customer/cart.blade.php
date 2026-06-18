@@ -11,7 +11,7 @@
 @endpush
 
 @section('page_content')
-    <div class="cart-container">
+    <section class="cart-container">
         <div class="title">
             MY CART
         </div>
@@ -105,5 +105,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

@@ -13,7 +13,7 @@
 @section('heading', 'Admin Management')
 
 @section('admin_page_content')
-    <div class="add-admin">
+    <section class="add-admin">
         <div class="admin-topbar">
             <div class="admin-meta">
                 <h3>Add Admins</h3>
@@ -80,7 +80,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </section>
 
     @include('dialogs.add_admin_modal')
 @endsection

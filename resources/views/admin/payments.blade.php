@@ -9,7 +9,7 @@
 @section('heading', 'Payments')
 
 @section('admin_page_content')
-    <div class="reservations">
+    <section class="reservations">
         <!-- <div class="table-title">
             <i class="fa-solid fa-clock"></i>
             <h5>Payments</h5>
@@ -46,5 +46,5 @@
                 @endforelse
             </tbody>
         </table>
-    </div>
+    </section>
 @endsection

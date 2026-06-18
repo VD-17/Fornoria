@@ -14,7 +14,7 @@
 
 @section('admin_page_content')
 
-    <div class="profile">
+    <section class="profile">
         <div class="edit-profile">
             <h3>Edit Profile</h3>
             <form action="{{ route('admin.profile.edit') }}" method="POST">
@@ -95,7 +95,7 @@
                 <button type="submit">Delete</button>
             </form>
         </div> -->
-    </div>
+    </section>
 
     <!-- @include('layouts.profile')  -->
 

@@ -13,7 +13,7 @@
 @section('heading', 'Gallery Management')
 
 @section('admin_page_content')
-    <div class="add-item">
+    <section class="add-item">
 
         <div class="gallery-topbar">
             <div class="gallery-meta">
@@ -53,7 +53,7 @@
                 <p class="empty-state">No images added yet</p>
             @endforelse
         </div>
-    </div>
+    </section>
 
     @include('dialogs.add_image_modal')
 

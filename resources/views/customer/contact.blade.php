@@ -11,7 +11,7 @@
 @endpush
 
 @section('page_content')
-    <div class="contact section-p1">
+    <section class="contact section-p1">
         <div class="title">
             CONTACT US
         </div>
@@ -77,5 +77,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

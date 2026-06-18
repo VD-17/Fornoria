@@ -9,7 +9,7 @@
 @section('heading', 'Dashboard')
 
 @section('admin_page_content')
-    <div class="dashboard-container">
+    <section class="dashboard-container">
         <div class="greetings">
             <h3><span>Hello</span>, {{ auth()->user()->name }}</h3>
             <p>Here's what's happening at Fornoria</p>
@@ -122,5 +122,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </section>
 @endsection

@@ -6,7 +6,7 @@
 @endpush
 
 @section('page_content')
-    <div class="track-order">
+    <section class="track-order">
         <div class="title">
             MY ORDERS
         </div>
@@ -51,5 +51,5 @@
                 <p>You have no orders yet.</p>
             @endforelse
         </div>
-    </div>
+    </section>
 @endsection
