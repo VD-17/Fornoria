@@ -7,12 +7,12 @@
 @endpush
 
 @section('page_content')
-    <section class="reservation">
-        <div class="title">
+    <article class="reservation">
+        <header class="title">
             MY RESERVATIONS
-        </div>
+        </header>
 
-        <div class="reservation-items">
+        <section class="reservation-items">
             @forelse ($reservations as $reservation)
                 <div class="res-card">
                     <div class="status {{ strtolower($reservation->status) }}">
@@ -36,7 +36,8 @@
                 </div>
             @empty
                 <p class="no-reservations">You have no reservations yet.</p>
+                <a href="{{ route('myres.index') }}" class="cancel-btn">Book a reservation</a>
             @endforelse
-        </div>
-    </section>
+        </section>
+    </article>
 @endsection

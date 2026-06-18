@@ -9,13 +9,13 @@
 @section('heading', 'Dashboard')
 
 @section('admin_page_content')
-    <section class="dashboard-container">
-        <div class="greetings">
+    <article class="dashboard-container">
+        <header class="greetings">
             <h3><span>Hello</span>, {{ auth()->user()->name }}</h3>
             <p>Here's what's happening at Fornoria</p>
-        </div>
+        </header>
 
-        <div class="stats">
+        <section class="stats">
             <div class="item">
                 <div class="icon-name">
                     <i class="fa-solid fa-utensils"></i>
@@ -65,9 +65,9 @@
                     R{{ $payments ? $payments->sum('amount') : 0 }}
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="orders">
+        <section class="orders">
             <div class="table-title">
                 <i class="fa-solid fa-clock"></i>
                 <h5>Recent Orders</h5>
@@ -121,6 +121,6 @@
                     @endforelse
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
+    </article>
 @endsection

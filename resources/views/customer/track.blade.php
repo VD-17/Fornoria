@@ -7,12 +7,12 @@
 @endpush
 
 @section('page_content')
-    <section class="track-order">
-        <div class="title">
+    <article class="track-order">
+        <header class="title">
             TRACK ORDER
-        </div>
+        </header>
 
-        <div class="tracking">
+        <section class="tracking">
             <div class="ref">
                 <span>Ref: #{{ $order->order_id }}</span>
                 <span>{{ \Carbon\Carbon::parse($order->orderDate)->format('d M Y, H:i') }}</span>
@@ -54,6 +54,6 @@
                     </div>
                 @endif
             </div>
-        </div>
-    </section>
+        </section>
+    </article>
 @endsection

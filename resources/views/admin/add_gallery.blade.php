@@ -13,9 +13,9 @@
 @section('heading', 'Gallery Management')
 
 @section('admin_page_content')
-    <section class="add-item">
+    <article class="add-item">
 
-        <div class="gallery-topbar">
+        <header class="gallery-topbar">
             <div class="gallery-meta">
                 <h3>Add images to Gallery</h3>
                 <p>
@@ -30,9 +30,9 @@
                 <i class="fa-solid fa-plus"></i>
                 Add Image
             </button>
-        </div>
+        </header>
 
-        <div class="display-gallery">
+        <section class="display-gallery">
             @forelse ($images as $image)
                 <div class="gallery-card">
                     <img
@@ -52,8 +52,8 @@
             @empty
                 <p class="empty-state">No images added yet</p>
             @endforelse
-        </div>
-    </section>
+        </section>
+    </article>
 
     @include('dialogs.add_image_modal')
 

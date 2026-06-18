@@ -13,9 +13,9 @@
 @section('heading', 'Menu Management')
 
 @section('admin_page_content')
-    <section class="add-item">
+    <article class="add-item">
 
-        <div class="menu-topbar">
+        <header class="menu-topbar">
             <div class="menu-meta">
                 <h3>Add item on Menu</h3>
                 <p>
@@ -30,16 +30,16 @@
                 <i class="fa-solid fa-plus"></i>
                 Add Item
             </button>
-        </div>
+        </header>
 
-        <div class="display-menu">
+        <section class="display-menu">
             @forelse ($menuItems as $item)
                 @include('components.menu_item', ['item' => $item, 'showActions' => true])
             @empty
                 <p class="empty-state">No menu items yet</p>
             @endforelse
-        </div>
-    </section>
+        </section>
+    </article>
 
     @include('dialogs.add_menu_modal')
 

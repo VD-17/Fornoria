@@ -11,9 +11,9 @@
 @section('page_content')
     <!-- Hero  -->
     <section class="hero">
-        <div class="hero-bg">
+        <figure class="hero-bg">
             <img src="images/restaurant/hero.jpeg" width="1880" height="950" alt="">
-        </div>
+        </figure>
 
         <div class="slogan">
             <p class="hero-sub">DELIGHTFUL EXPERIENCE</p>
@@ -21,39 +21,39 @@
             <p class="hero-desc">Come with family & feel the joy of mouthwatering food</p>
         </div>
 
-        <div class="action-btns">
+        <nav class="action-btns">
             <a href="#menu" class="btn-menu">View Our Menu</a>
             <a href="{{ route('order') }}" class="btn-order">ORDER</a>
-        </div>
+        </nav>
     </section>
 
      <!-- Menu  -->
     <section class="menu">
         <div class="bg-images">
-            <div class="bg-image1">
+            <figure class="bg-image1">
                 <img src="images/restaurant/menu_bg.jpeg" alt="">
-            </div>
-            <div class="bg-image2">
+            </figure>
+            <figure class="bg-image2">
                 <img src="images/restaurant/menu_bg_image_2.jpeg" alt="">
-            </div>
+            </figure>
         </div>
 
-        <div class="dome-menu-heading">
+        <header class="dome-menu-heading">
             <img src="images/icons/logo.png" alt="">
             <h1>MENU</h1>
             <h4>Try Our Menu</h4>
-        </div>
+        </header>
 
         <div class="view-menu">
             <div class="menus">
-                <div class="categories">
+                <section class="categories">
                     <h3><span>STARTERS</span></h3>
                     <div class="items-grid">
                         @forelse ($starters as $starter)
                             <div class="menu-item">
-                                <div class="menu-image">
+                                <figure class="menu-image">
                                     <img src="{{ $starter->item_image ? Storage::url($starter->item_image) : asset('images/placeholder.png') }}" alt="{{ $starter->item_name }}">
-                                </div>
+                                </figure>
                                 <div class="details">
                                     <span class="item-name">{{ $starter->item_name }}</span>
                                     <p>{{ $starter->ingredients }}</p>
@@ -66,16 +66,16 @@
                             <p class="empty-msg">No starters available.</p>
                         @endforelse
                     </div>
-                </div>
+                </section>
 
-                <div class="categories">
+                <section class="categories">
                     <h3><span>PIZZAS</span></h3>
                     <div class="items-grid">
                         @forelse ($pizzas as $pizza)
                             <div class="menu-item">
-                                <div class="menu-image">
+                                <figure class="menu-image">
                                     <img src="{{ $pizza->item_image ? Storage::url($pizza->item_image) : asset('images/placeholder.png') }}" alt="{{ $pizza->item_name }}">
-                                </div>
+                                </figure>
                                 <div class="details">
                                     <span class="item-name">{{ $pizza->item_name }}</span>
                                     <p>{{ $pizza->ingredients }}</p>
@@ -88,16 +88,16 @@
                             <p class="empty-msg">No pizzas available.</p>
                         @endforelse
                     </div>
-                </div>
+                </section>
 
-                <div class="categories">
+                <section class="categories">
                     <h3><span>DRINKS</span></h3>
                     <div class="items-grid">
                         @forelse ($drinks as $drink)
                             <div class="menu-item">
-                                <div class="menu-image">
+                                <figure class="menu-image">
                                     <img src="{{ $drink->item_image ? Storage::url($drink->item_image) : asset('images/placeholder.png') }}" alt="{{ $drink->item_name }}">
-                                </div>
+                                </figure>
                                 <div class="details">
                                     <span class="item-name">{{ $drink->item_name }}</span>
                                     <p>{{ $drink->ingredients }}</p>
@@ -110,16 +110,16 @@
                             <p class="empty-msg">No drinks available.</p>
                         @endforelse
                     </div>
-                </div>
+                </section>
 
-                <div class="categories">
+                <section class="categories">
                     <h3><span>DESSERTS</span></h3>
                     <div class="items-grid">
                         @forelse ($desserts as $dessert)
                             <div class="menu-item">
-                                <div class="menu-image">
+                                <figure class="menu-image">
                                     <img src="{{ $dessert->item_image ? Storage::url($dessert->item_image) : asset('images/placeholder.png') }}" alt="{{ $dessert->item_name }}">
-                                </div>
+                                </figure>
                                 <div class="details">
                                     <span class="item-name">{{ $dessert->item_name }}</span>
                                     <p>{{ $dessert->ingredients }}</p>
@@ -132,24 +132,24 @@
                             <p class="empty-msg">No desserts available.</p>
                         @endforelse
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </section>
 
     <!-- About us  -->
     <section class="about">
-        <div class="about-image">
+        <figure class="about-image">
             <img src="images/restaurant/about_image_3.jpeg" alt="">
-        </div>
+        </figure>
         <div class="about-details">
             <p>OUR STORY</p>
             <h3>Every Flavour Tells A Story</h3>
             <a href="{{ route('about')}}">Read More</a>
         </div>
-        <div class="about-image">
+        <figure class="about-image">
             <img src="images/restaurant/about_image_3.jpeg" alt="">
-        </div>
+        </figure>
     </section>
 
     <!-- Secret  -->

@@ -13,8 +13,8 @@
 @section('heading', 'Admin Management')
 
 @section('admin_page_content')
-    <section class="add-admin">
-        <div class="admin-topbar">
+    <article class="add-admin">
+        <header class="admin-topbar">
             <div class="admin-meta">
                 <h3>Add Admins</h3>
                 <p>
@@ -29,7 +29,7 @@
                 <i class="fa-solid fa-plus"></i>
                 Add Admin
             </button>
-        </div>
+        </header>
 
         <!-- @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -39,7 +39,7 @@
             <div class="alert alert-error">{{ session('error') }}</div>
         @endif -->
 
-        <div class="display-admin">
+        <section class="display-admin">
             <table class="admin-table">
                 <thead>
                     <tr>
@@ -79,8 +79,8 @@
                     @endforelse
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
+    </article>
 
     @include('dialogs.add_admin_modal')
 @endsection

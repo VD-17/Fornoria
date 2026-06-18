@@ -12,9 +12,9 @@
 
 @section('page_content')
     <section class="cart-container">
-        <div class="title">
+        <header class="title">
             MY CART
-        </div>
+        </header>
 
         <div class="manage-cart">
             <div class="cart">
@@ -36,13 +36,13 @@
                             @foreach ($cartItems as $cartItem)
                                 <tr>
                                     <td>
-                                        <div class="product-detail">
+                                        <figure class="product-detail">
                                             <img
                                                 src="{{ $cartItem->menuItem->item_image ? Storage::url($cartItem->menuItem->item_image) : asset('images/placeholder.png') }}"
                                                 alt="{{ $cartItem->menuItem->item_name }}"
                                             >
-                                            <span>{{ $cartItem->menuItem->item_name }}</span>
-                                        </div>
+                                            <figcaption>{{ $cartItem->menuItem->item_name }}</figcaption>
+                                        </figure>
                                     </td>
                                     <td>R{{ number_format($cartItem->menuItem->price, 0) }}</td>
                                     <td>
@@ -81,18 +81,25 @@
                 @endif
             </div>
 
-            <div class="checkout">
+            <aside class="checkout">
                 <form action="{{ route('cart.placeOrder') }}" method="POST">
                     @csrf
-
-                    <label for="address">Delivery Address</label>
-                    <input type="text" name="address" id="address" placeholder="Enter your delivery address">
 
                     <div class="cart-total">
                         <hr>
                         <span>Cart Total: <em id="cart-total-display">R{{ number_format($cartTotal, 0) }}</em></span>
                         <hr>
                     </div>
+
+                    <div class="delivery">
+                        <button type="submit" name="delivery_method" value="collect">Collect</button>
+                        <button type="submit" name="delivery_method" value="deliver">Deliver</button>
+                    </div>
+
+                    @if ($orders.delivery_method == "deliver")
+                        <label for="address">Delivery Address</label>
+                        <input type="text" name="address" id="address" placeholder="Enter your delivery address">
+                    @endif
 
                     <div class="payment">
                         <button type="submit" name="payment_method" value="payfast">PayFast</button>
@@ -103,7 +110,7 @@
                         <button type="submit">Place Order</button>
                     </div>
                 </form>
-            </div>
+            </aside>
         </div>
     </section>
 @endsection

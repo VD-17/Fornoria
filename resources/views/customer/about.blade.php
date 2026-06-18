@@ -7,12 +7,12 @@
 @endpush
 
 @section('page_content')
-    <section class="about-container">
-        <div class="title">
+    <article class="about-container">
+        <header class="title">
             ABOUT US
-        </div>
+        </header>
 
-        <div class="about">
+        <section class="about">
             <div class="about-details">
                 <h2>Every Flavour Tells A Story</h2>
                 <p>
@@ -31,11 +31,9 @@
                 </p>
             </div>
 
-            <div class="res-image">
-                <img src="images/restaurant/about.png" alt="">
-            </div>
-        </div>
-
-
-    </section>
+            <figure class="res-image">
+                <img src="images/restaurant/about.png" alt="Fornoria restaurant interior">
+            </figure>
+        </section>
+    </article>
 @endsection

@@ -12,8 +12,8 @@
 
 @section('page_content')
 
-    <section class="profile">
-        <div class="edit-profile">
+    <article class="profile">
+        <section class="edit-profile">
             <h3>Edit Profile</h3>
             <form action="{{ route('profile.edit') }}" method="POST">
                 @csrf
@@ -47,17 +47,17 @@
                     <button type="submit">Save Changes</button>
                 </div>
             </form>
-        </div>
+        </section>
 
-        <div class="sign-out">
+        <section class="sign-out">
             <h3>Sign Out</h3>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit">Sign Out</button>
             </form>
-        </div>
+        </section>
 
-        <div class="change-password">
+        <section class="change-password">
             <h3>Change Password</h3>
             <form action="{{ route('user.change.password') }}" method="POST">
                 @csrf
@@ -83,17 +83,17 @@
                     <button type="submit">Change Password</button>
                 </div>
             </form>
-        </div>
+        </section>
 
-        <div class="delete-account">
+        <section class="delete-account">
             <h3>Delete Account</h3>
             <form action="{{ route('profile.delete', auth()->user()->id) }}" method="POST">  {{-- missing id param --}}
                 @csrf
                 @method('DELETE')
                 <button type="submit">Delete</button>
             </form>
-        </div>
-    </section>
+        </section>
+    </article>
 
      <!-- @include('layouts.profile') -->
 

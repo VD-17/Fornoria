@@ -250,6 +250,32 @@ body {
     font-size: 1.05rem;
 }
 
+.delivery {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.delivery button {
+    flex: 1;
+    padding: 10px 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    border: 2px solid rgba(255,255,255,0.7);
+    background: transparent;
+    color: var(--light);
+}
+
+.delivery button:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--light);
+}
+
 .payment {
     display: flex;
     gap: 10px;

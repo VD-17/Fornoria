@@ -7,11 +7,11 @@
 @endpush
 
 @section('content')
-    <section class="register" style="background-image: url('{{ asset('images/restaurant/auth.png') }}')">
+    <section class="register">
         <div class="register-form">
-            <div class="logo">
+            <figure class="logo">
                 <img src="images/icons/fornoria_logo.png" alt="Fornoria">
-            </div>
+            </figure>
 
             <h2>Login</h2>
 

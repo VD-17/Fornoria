@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <!-- PWA -->
     <meta name="theme-color" content="#c0392b">
     <meta name="mobile-web-app-capable" content="yes">
@@ -28,8 +28,8 @@
     --gallery-img1: url("{{ asset('storage/gallery_images/XDkCp7IuwTXxJokoGHsGD8iKpIHxOJWdTeDSPWEh.jpg') }}");
     --gallery-img2: url("{{ asset('storage/gallery_images/sWwn3Lnc5VCiP2kx2SG0TjIeZJ3O1cWQxUCXswIh.jpg') }}");
     --gallery-img3: url("{{ asset('storage/gallery_images/OJF8h7GzzHlotbSkKjoEmaqJoLF7d29IGkI5Aa3P.jpg') }}");
-    --gallery-img4: url("{{ asset('storage/gallery_images/DFz6DCNu0kULhke7jNnTWFwr1QFk6AR1PFpNzvfg.jpg') }}"); }
-
+    --gallery-img4: url("{{ asset('storage/gallery_images/DFz6DCNu0kULhke7jNnTWFwr1QFk6AR1PFpNzvfg.jpg') }}");
+    --auth-img: url("{{ asset('images/restaurant/auth.png') }}");}
     </style>
 </head>
 <body @yield('body_class') @yield('body_style')>

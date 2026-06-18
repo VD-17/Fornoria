@@ -9,13 +9,13 @@
 @section('heading', 'Orders')
 
 @section('admin_page_content')
-    <section class="dashboard-container">
+    <article class="dashboard-container">
         <!-- Recent orders  -->
-        <div class="orders">
-            <div class="table-title">
+        <section class="orders">
+            <header class="table-title">
                 <i class="fa-solid fa-clock"></i>
                 <h5>Active Orders</h5>
-            </div>
+            </header>
             <table class="order-table">
                 <thead>
                     <tr>
@@ -65,14 +65,14 @@
                     @endforelse
                 </tbody>
             </table>
-        </div>
+        </section>
 
         <!-- Delivered orders  -->
-        <div class="orders">
-            <div class="table-title">
+        <section class="orders">
+            <header class="table-title">
                 <i class="fa-solid fa-clock"></i>
                 <h5>Delivered Orders</h5>
-            </div>
+            </header>
             <table class="order-table">
                 <thead>
                     <tr>
@@ -101,6 +101,6 @@
                     @endforelse
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
+    </article>
 @endsection

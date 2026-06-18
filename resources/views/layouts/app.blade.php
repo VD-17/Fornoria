@@ -11,7 +11,7 @@
 @section('content')
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <Header>
+    <header>
         <div class="topbar">
             <div>
                 <i class="fa-solid fa-location-dot"></i>
@@ -109,7 +109,7 @@
                 <span class="line line-3"></span>
             </button>
         </div>
-    </Header>
+    </header>
 
     <main>
         @yield('page_content')

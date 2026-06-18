@@ -11,11 +11,11 @@
 @endpush
 
 @section('page_content')
-    <section class="order-container">
-        <div class="order-topbar">
-            <div class="title">
+    <article class="order-container">
+        <section class="order-topbar">
+            <header class="title">
                 ORDER
-            </div>
+            </header>
 
             <div class="filter-row">
                 <ul class="filter-items" id="filterItems">
@@ -31,16 +31,16 @@
                     <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
                 </button>
             </div>
-        </div>
+        </section>
 
-        <div class="display-menu">
+        <section class="display-menu">
             @forelse ($menuItems as $item)
                 @include('components.menu_item', ['item' => $item, 'showActions' => false, 'showOrder' => true])
             @empty
                 <p class="empty-state">No menu items available.</p>
             @endforelse
-        </div>
-    </section>
+        </section>
+    </article>
 
     @include('components.cart_sidebar')
 @endsection

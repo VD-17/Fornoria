@@ -6,12 +6,12 @@
 @endpush
 
 @section('page_content')
-    <section class="track-order">
-        <div class="title">
+    <article class="track-order">
+        <header class="title">
             MY ORDERS
-        </div>
+        </header>
 
-        <div class="tracking">
+        <section class="tracking">
             @forelse($orders as $order)
                 <div class="order">
                     <div class="ref">
@@ -49,7 +49,11 @@
                 </div>
             @empty
                 <p>You have no orders yet.</p>
+                <form action="{{ route('order') }}" method="POST">
+                    @csrf
+                    <button type="submit">Order</button>
+                </form>
             @endforelse
-        </div>
-    </section>
+        </section>
+    </article>
 @endsection
