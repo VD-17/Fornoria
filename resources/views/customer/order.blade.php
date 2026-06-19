@@ -26,10 +26,14 @@
                     <li class="filter-item" data-filter="desserts">Desserts</li>
                 </ul>
 
-                <button class="cart-toggle-btn" id="cartToggleBtn" aria-label="Open cart">
+                <!-- <button class="cart-toggle-btn" id="cartToggleBtn" aria-label="Open cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
-                </button>
+                </button> -->
+                <a href="{{ route('cart.index') }}" class="cart-toggle-btn" id="cartToggleBtn" aria-label="Open cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+                </a>
             </div>
         </section>
 

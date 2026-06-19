@@ -36,7 +36,7 @@
                 </div>
             @empty
                 <p class="no-reservations">You have no reservations yet.</p>
-                <a href="{{ route('myres.index') }}" class="cancel-btn">Book a reservation</a>
+                <a href="{{ route('home') }}#reservation" class="btn-cta">Book a reservation</a>
             @endforelse
         </section>
     </article>

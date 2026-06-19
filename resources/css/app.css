@@ -102,3 +102,41 @@ section {
     margin-top: 2px;
     min-height: 1em;
 }
+
+.btn-cta {
+    display: inline-block;
+    background: var(--secondary);
+    color: var(--light);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 36px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.btn-cta:hover {
+    background: var(--accent);
+    box-shadow: 0 6px 16px var(--deep-shadow);
+    transform: translateY(-2px);
+}
+
+.btn-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.btn-cta:disabled,
+.btn-cta.disabled {
+    background: var(--border);
+    color: var(--primary);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}

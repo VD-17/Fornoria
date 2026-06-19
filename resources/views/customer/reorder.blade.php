@@ -49,10 +49,7 @@
                 </div>
             @empty
                 <p>You have no orders yet.</p>
-                <form action="{{ route('order') }}" method="POST">
-                    @csrf
-                    <button type="submit">Order</button>
-                </form>
+                <a href="{{ route('order') }}" class="btn-cta">Order</a>
             @endforelse
         </section>
     </article>

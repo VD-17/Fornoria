@@ -28,7 +28,7 @@
     </section>
 
      <!-- Menu  -->
-    <section class="menu">
+    <section class="menu" id="menu">
         <div class="bg-images">
             <figure class="bg-image1">
                 <img src="images/restaurant/menu_bg.jpeg" alt="">
@@ -209,7 +209,7 @@
     </section>
 
     <!-- Reservation  -->
-    <section class="reservation">
+    <section class="reservation" id="reservation">
         <div class="title">
             Reserve A Table
         </div>
