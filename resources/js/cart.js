@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
-            const btn        = e.currentTarget;
+            const btn = e.currentTarget;
             const menuItemId = btn.dataset.id;
-            const itemName   = btn.dataset.name;
+            const itemName = btn.dataset.name;
 
-            btn.disabled    = true;
+            btn.disabled = true;
             btn.textContent = 'Adding…';
 
             try {
@@ -104,6 +104,76 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Delivery method & payment method selection ---
+    const deliveryButtons = document.querySelectorAll('.delivery-btn');
+    const paymentButtons  = document.querySelectorAll('.payment-btn');
+    const deliveryInput   = document.getElementById('delivery_method_input');
+    const paymentInput    = document.getElementById('payment_method_input');
+    const addressField    = document.getElementById('address-field');
+    const addressInput    = document.getElementById('address');
+    const checkoutForm    = document.getElementById('checkout-form');
+    const checkoutError   = document.getElementById('checkout-error');
+
+    if (checkoutForm) {
+        deliveryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                deliveryButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                deliveryInput.value = btn.dataset.value;
+                hideCheckoutError();
+
+                if (btn.dataset.value === 'deliver') {
+                    addressField.style.display = 'block';
+                    addressInput.setAttribute('required', 'required');
+                } else {
+                    addressField.style.display = 'none';
+                    addressInput.removeAttribute('required');
+                    addressInput.value = '';
+                }
+            });
+        });
+
+        paymentButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                paymentButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                paymentInput.value = btn.dataset.value;
+                hideCheckoutError();
+            });
+        });
+
+        checkoutForm.addEventListener('submit', (e) => {
+            if (!deliveryInput.value) {
+                e.preventDefault();
+                showCheckoutError('Please select a delivery method.');
+                return;
+            }
+
+            if (deliveryInput.value === 'deliver' && !addressInput.value.trim()) {
+                e.preventDefault();
+                showCheckoutError('Please enter a delivery address.');
+                return;
+            }
+
+            if (!paymentInput.value) {
+                e.preventDefault();
+                showCheckoutError('Please select a payment method.');
+                return;
+            }
+        });
+    }
+
+    function showCheckoutError(message) {
+        if (!checkoutError) return;
+        checkoutError.textContent = message;
+        checkoutError.style.display = 'block';
+    }
+
+    function hideCheckoutError() {
+        if (!checkoutError) return;
+        checkoutError.style.display = 'none';
+    }
 
     function updateCartTotalDisplay() {
         let total = 0;

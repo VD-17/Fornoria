@@ -11,12 +11,12 @@
 @endpush
 
 @section('page_content')
-    <section class="cart-container">
+    <article class="cart-container">
         <header class="title">
             MY CART
         </header>
 
-        <div class="manage-cart">
+        <section class="manage-cart">
             <div class="cart">
                 @if ($cartItems->isEmpty())
                     <p class="cart-empty-state">Your cart is empty.</p>
@@ -82,7 +82,7 @@
             </div>
 
             <aside class="checkout">
-                <form action="{{ route('cart.placeOrder') }}" method="POST">
+                <form action="{{ route('cart.placeOrder') }}" method="POST" id="checkout-form">
                     @csrf
 
                     <div class="cart-total">
@@ -91,26 +91,41 @@
                         <hr>
                     </div>
 
+                    <input type="hidden" name="delivery_method" id="delivery_method_input" value="">
+                    <input type="hidden" name="payment_method" id="payment_method_input" value="">
+
+                    <label for="delivery">Delivery Method:</label>
                     <div class="delivery">
-                        <button type="submit" name="delivery_method" value="collect">Collect</button>
-                        <button type="submit" name="delivery_method" value="deliver">Deliver</button>
+                        <button type="button" class="delivery-btn" data-value="collect">
+                            Collect
+                        </button>
+                        <button type="button" class="delivery-btn" data-value="deliver">
+                            Deliver
+                        </button>
                     </div>
 
-                    @if ($orders.delivery_method == "deliver")
+                    <div class="delivery-address" id="address-field" style="display: none;">
                         <label for="address">Delivery Address</label>
                         <input type="text" name="address" id="address" placeholder="Enter your delivery address">
-                    @endif
-
-                    <div class="payment">
-                        <button type="submit" name="payment_method" value="payfast">PayFast</button>
-                        <button type="submit" name="payment_method" value="pay_in_person">Pay in Person</button>
                     </div>
 
+                    <label for="payment">Payment Method:</label>
+                    <div class="payment">
+                        <button type="button" class="payment-btn" data-value="payfast">
+                            PayFast
+                        </button>
+                        <button type="button" class="payment-btn" data-value="pay_in_person">
+                            Pay in Person
+                        </button>
+                    </div>
+
+                    <p class="checkout-error" id="checkout-error" style="display:none;"></p>
+
                     <div class="place-order-btn">
-                        <button type="submit">Place Order</button>
+                        <button type="submit" id="place-order-submit">Place Order</button>
                     </div>
                 </form>
             </aside>
-        </div>
-    </section>
+        </section>
+    </article>
 @endsection

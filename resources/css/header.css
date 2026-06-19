@@ -9,13 +9,14 @@ header {
     justify-content: space-between;
     align-items: center;
     color: var(--light);
-    padding: 4px 20px;
+    padding: 6px 20px;
     font-size: 0.8rem;
     flex-wrap: wrap;
     gap: 6px;
 }
 
-.topbar div {
+.topbar address,
+.topbar > div {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -43,7 +44,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 20px;
+    padding: 0px 20px;
     position: relative;
 }
 

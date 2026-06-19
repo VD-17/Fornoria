@@ -92,6 +92,7 @@ class CartController extends Controller
 
     public function placeOrder(Request $request) {
         $request->validate([
+            'delivery_method' => 'required|in:collect,deliver',
             'address' => 'required|string|max:255',
             'payment_method' => 'required|in:payfast,pay_in_person',
         ]);
@@ -109,7 +110,8 @@ class CartController extends Controller
             'user_id' => Auth::id(),
             'orderDate' => Carbon::now(),
             'totalAmount' => $cartTotal,
-            'deliveryAddress' => $request->address,
+            'deliveryMethod' => $request->delivery_method,
+            'deliveryAddress' => $request->delivery_method === 'deliver' ? $request->address : null,
         ]);
 
         foreach ($cartItems as $cartItem) {

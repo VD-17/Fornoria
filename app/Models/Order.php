@@ -14,6 +14,7 @@ class Order extends Model
         'orderDate',
         'totalAmount',
         'status',
+        'deliveryMethod',
         'deliveryAddress',
     ];
 

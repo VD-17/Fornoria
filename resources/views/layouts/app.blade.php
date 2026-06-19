@@ -13,10 +13,10 @@
 
     <header>
         <div class="topbar">
-            <div>
+            <address>
                 <i class="fa-solid fa-location-dot"></i>
                 <p>East Road, Mowbaray, Cape Town, 8000</p>
-            </div>
+            </address>
 
             <div>
                 <i class="fa-solid fa-clock"></i>
