@@ -1,3 +1,5 @@
+// Headers.js
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Dropdown
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userProfile.setAttribute('aria-expanded', 'false');
     }
 
-    // Navbar 
+    // Navbar
     const navOpenBtn  = document.getElementById('navOpenBtn');
     const navCloseBtn = document.getElementById('navCloseBtn');
     const navbar      = document.getElementById('navbar');

@@ -1,3 +1,5 @@
+// add_admin.js
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const overlay = document.getElementById('addAdminOverlay');

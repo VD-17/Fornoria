@@ -1,10 +1,10 @@
+// cart.js
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.increase-btn, .decrease-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
             const btn        = e.currentTarget;
             const cartItemId = btn.dataset.id;
-            // FIX: parse price as float explicitly — dataset values are always strings
             const price      = parseFloat(btn.dataset.price);
             const isIncrease = btn.classList.contains('increase-btn');
 
@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const newQty = isIncrease ? currentQty + 1 : currentQty - 1;
 
-            // Optimistic UI — update display immediately before the request returns
             qtySpan.textContent   = newQty;
             totalCell.textContent = `R${formatNumber(newQty * price)}`;
             updateCartTotalDisplay();

@@ -318,7 +318,7 @@
         margin-bottom: 1.5rem;
     }
 
-    .admin-meta h3 {  
+    .admin-meta h3 {
         font-size: 1.3rem;
     }
 
@@ -328,7 +328,6 @@
         padding: 0.65rem 1rem;
     }
 
-    /* ✅ Table scroll on mobile */
     .display-admin {
         overflow-x: auto;
     }
@@ -338,7 +337,6 @@
     }
 }
 
-/* ── Small Phone ── */
 @media (max-width: 500px) {
     .modal {
         padding: 1.25rem;

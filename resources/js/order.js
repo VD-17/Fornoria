@@ -1,3 +1,5 @@
+// order.js
+
 const CART_KEY = 'fornoria_cart';
 
 function getCart() {
@@ -137,53 +139,53 @@ function initFilter() {
     });
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     renderCart();
-//     initFilter();
+document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+    initFilter();
 
-//     document.getElementById('cartToggleBtn')?.addEventListener('click', openCart);
+    document.getElementById('cartToggleBtn')?.addEventListener('click', openCart);
 
-//     document.getElementById('cartCloseBtn')?.addEventListener('click', closeCart);
+    document.getElementById('cartCloseBtn')?.addEventListener('click', closeCart);
 
-//     document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
+    document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
 
-//     document.addEventListener('keydown', e => {
-//         if (e.key === 'Escape') closeCart();
-//     });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeCart();
+    });
 
-//     document.getElementById('displayMenu')?.addEventListener('click', e => {
-//         const btn = e.target.closest('.add-to-cart-btn');
-//         if (!btn) return;
+    document.getElementById('displayMenu')?.addEventListener('click', e => {
+        const btn = e.target.closest('.add-to-cart-btn');
+        if (!btn) return;
 
-//         const { id, name, price, image } = btn.dataset;
-//         addToCart(id, name, price, image);
-//         renderCart();
-//         openCart();
+        const { id, name, price, image } = btn.dataset;
+        addToCart(id, name, price, image);
+        renderCart();
+        openCart();
 
-//         btn.textContent = 'Added!';
-//         btn.classList.add('added');
-//         setTimeout(() => {
-//             btn.textContent = 'Order';
-//             btn.classList.remove('added');
-//         }, 1200);
-//     });
+        btn.textContent = 'Added!';
+        btn.classList.add('added');
+        setTimeout(() => {
+            btn.textContent = 'Order';
+            btn.classList.remove('added');
+        }, 1200);
+    });
 
-//     document.getElementById('cartItemsList')?.addEventListener('click', e => {
-//         const minus = e.target.closest('.qty-minus');
-//         const plus = e.target.closest('.qty-plus');
-//         const remove = e.target.closest('.cart-remove-btn');
+    document.getElementById('cartItemsList')?.addEventListener('click', e => {
+        const minus = e.target.closest('.qty-minus');
+        const plus = e.target.closest('.qty-plus');
+        const remove = e.target.closest('.cart-remove-btn');
 
-//         if (minus) {
-//             updateQty(minus.dataset.id, -1);
-//             renderCart();
-//         }
-//         if (plus) {
-//             updateQty(plus.dataset.id,  +1);
-//             renderCart();
-//         }
-//         if (remove) {
-//             removeFromCart(remove.dataset.id);
-//             renderCart();
-//         }
-//     });
-// });
+        if (minus) {
+            updateQty(minus.dataset.id, -1);
+            renderCart();
+        }
+        if (plus) {
+            updateQty(plus.dataset.id,  +1);
+            renderCart();
+        }
+        if (remove) {
+            removeFromCart(remove.dataset.id);
+            renderCart();
+        }
+    });
+});

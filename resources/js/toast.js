@@ -1,3 +1,5 @@
+// toast.js
+
 (function () {
     const AUTO_DISMISS_MS = 5000; // matches CSS progress bar duration
 
