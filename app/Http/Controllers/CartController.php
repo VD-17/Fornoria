@@ -133,7 +133,7 @@ class CartController extends Controller
             ]);
         }
 
-        $paymentMethod = $request->payment_method === 'PayFast' ? 'PayFast' : 'PayInPerson';
+        $paymentMethod = $request->payment_method === 'payfast' ? 'PayFast' : 'PayInPerson';
 
         Payment::create([
             'order_id' => $order->order_id,
@@ -144,7 +144,7 @@ class CartController extends Controller
                                     ? 'PF-PENDING-' . $order->order_id
                                     : 'IN-PERSON-'  . $order->order_id,
             'dateOfPayment' => Carbon::now(),
-            'paymentStatus' => $paymentMethod === 'PayFast' ? 'pending' : 'pending',
+            'paymentStatus' => 'pending',
         ]);
 
         $cart->cartItems()->delete();
