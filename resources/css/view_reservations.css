@@ -4,6 +4,8 @@
     padding: 24px;
     box-shadow: 0 2px 8px var(--shadow);
     margin: 20px;
+    overflow: hidden;   /* keeps rounded corners clean, nothing escapes the card */
+    min-width: 0;       /* safe default if this sits in a flex/grid parent */
 }
 
 .table-title {
@@ -25,8 +27,18 @@
     margin: 0;
 }
 
+/* ── Scroll wrapper (handles tablet + phone) ── */
+.table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .reservation-table {
     width: 100%;
+    min-width: 720px;   /* table never shrinks below this; scroll kicks in instead */
     border-collapse: collapse;
     font-size: 0.9rem;
     font-family: var(--font-body);
@@ -43,6 +55,7 @@
     color: var(--primary);
     font-size: 0.88rem;
     font-family: var(--font-body);
+    white-space: nowrap;
 }
 
 .reservation-table td {
@@ -50,6 +63,7 @@
     color: var(--primary);
     border-bottom: 1px solid var(--border);
     font-family: var(--font-body);
+    white-space: nowrap;
 }
 
 .reservation-table tbody tr:last-child td {
@@ -66,6 +80,7 @@
     font-style: italic;
     padding: 30px 0 !important;
     font-family: var(--font-body);
+    white-space: normal;
 }
 
 /* ── Status badge ── */
@@ -80,6 +95,7 @@
     color: var(--primary);
     background-color: transparent;
     text-transform: capitalize;
+    white-space: nowrap;
 }
 
 .status-badge.status-confirmed {
@@ -119,6 +135,7 @@
     color: var(--accent);
 }
 
+/* ── Responsive: tablet ── */
 @media (max-width: 768px) {
     .reservations {
         margin: 12px;
@@ -126,52 +143,18 @@
         border-radius: 10px;
     }
 
-    .reservation-table thead {
-        display: none;
-    }
-
-    .reservation-table tbody tr {
-        display: block;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        margin-bottom: 12px;
-        padding: 8px;
-    }
-
-    .reservation-table tbody tr:last-child td {
-        border-bottom: 1px solid var(--border);
-    }
-
-    .reservation-table tbody tr:last-child {
-        margin-bottom: 0;
-    }
-
-    .reservation-table td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 10px;
-        border-bottom: 1px dashed var(--border);
+    .reservation-table {
+        min-width: 640px;
         font-size: 0.85rem;
     }
 
-    .reservation-table td:last-child {
-        border-bottom: none;
-    }
-
-    /* Label each cell using data-label attribute */
-    .reservation-table td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: var(--primary);
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        flex-shrink: 0;
-        margin-right: 12px;
+    .reservation-table th,
+    .reservation-table td {
+        padding: 10px 12px;
     }
 }
 
+/* ── Responsive: phone ── */
 @media (max-width: 480px) {
     .reservations {
         margin: 8px;
@@ -182,8 +165,23 @@
         font-size: 0.95rem;
     }
 
+    .reservation-table {
+        min-width: 560px;
+        font-size: 0.8rem;
+    }
+
+    .reservation-table th,
+    .reservation-table td {
+        padding: 8px 10px;
+    }
+
     .status-badge {
         font-size: 0.72rem;
         padding: 2px 8px;
+    }
+
+    .action-btn {
+        padding: 4px 5px;
+        font-size: 0.88rem;
     }
 }
