@@ -140,8 +140,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/gallery/{image}', [GalleryController::class, 'delete'])->name('gallery.delete');
 
     // Profile
-    Route::get('admin/profile', [AuthController::class, 'admin_profile_index'])->name('admin.profile.index');
-    Route::patch('admin/profile/edit', [AuthController::class, 'edit_profile'])->name('admin.profile.edit');
-    Route::patch('admin/profile/change-password', [AuthController::class, 'change_password'])->name('admin.change.password');
-    Route::delete('admin/profile/delete/{id}', [AuthController::class, 'delete_user'])->name('admin.profile.delete');
+    Route::get('/admin/profile', [AuthController::class, 'admin_profile_index'])->name('admin.profile.index');
+    Route::patch('/admin/profile/edit', [AuthController::class, 'edit_profile'])->name('admin.profile.edit');
+    Route::patch('/admin/profile/change-password', [AuthController::class, 'change_password'])->name('admin.change.password');
+    Route::delete('/admin/profile/delete/{id}', [AuthController::class, 'delete_user'])->name('admin.profile.delete');
 });
