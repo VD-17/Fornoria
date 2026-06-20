@@ -21,7 +21,7 @@ Route::get('/register', [AuthController::class, 'index']);
 Route::post('/register', [AuthController::class, 'register']);
 
 // Login
-Route::get('/login', [AuthController::class, 'index_login']);
+Route::get('/login', [AuthController::class, 'index_login'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 // Google
