@@ -16,13 +16,26 @@
 .manage-cart {
     display: grid;
     grid-template-columns: 1fr 340px;
+    grid-template-areas:
+        "title title"
+        "cart checkout";
     gap: 32px;
     align-items: start;
     padding: 10px 60px 80px;
 }
 
+.manage-cart > .title {
+    grid-area: title;
+    justify-self: center;
+}
+
 .cart {
+    grid-area: cart;
     background: transparent;
+}
+
+.checkout {
+    grid-area: checkout;
 }
 
 .cart-empty-state {
@@ -341,6 +354,10 @@
 
     .manage-cart {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "cart"
+            "checkout";
     }
 
     .checkout {

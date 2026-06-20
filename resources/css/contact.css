@@ -1,15 +1,8 @@
-.contact {
-    min-height: calc(100vh - 120px);
-    padding: 40px 80px;
+.contact-container {
     display: flex;
     flex-direction: column;
     gap: 40px;
-}
-
-.contact-container {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .sr-only {
@@ -24,9 +17,20 @@
     border-width: 0;
 }
 
+.contact-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+}
+
+.contact-form-wrap {
+    flex: 1;
+}
+
 /* form  */
 .contact-form {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -151,7 +155,7 @@
         gap: 30px;
     }
 
-    .contact-container {
+    .contact-row {
         flex-direction: column;
     }
 

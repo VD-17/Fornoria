@@ -12,11 +12,11 @@
 
 @section('page_content')
     <article class="cart-container">
-        <header class="title">
-            MY CART
-        </header>
 
         <section class="manage-cart">
+            <header class="title">
+                MY CART
+            </header>
             <div class="cart">
                 @if ($cartItems->isEmpty())
                     <p class="cart-empty-state">Your cart is empty.</p>

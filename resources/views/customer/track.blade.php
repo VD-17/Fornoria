@@ -20,7 +20,10 @@
 
             <div class="track-status">
                 <div class="status">
-                    @if ($order->status === 'Preparing')
+                    @if ($order->status === 'Pending')
+                        <i class="fa-solid fa-hourglass-start"></i>
+                        <span>Pending</span>
+                    @elseif ($order->status === 'Preparing')
                         <i class="fa-solid fa-hourglass-start"></i>
                         <span>Preparing</span>
                     @elseif ($order->status === 'Out for Delivery')
@@ -55,5 +58,5 @@
                 @endif
             </div>
         </div>
-        </div>
+    </div>
 @endsection
