@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\MenuItem;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
