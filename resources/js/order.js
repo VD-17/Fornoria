@@ -101,18 +101,17 @@ function renderCart() {
     });
 }
 
-// ─── Sidebar open/close (commented out) ───
-// function openCart() {
-//     document.getElementById('cartSidebar')?.classList.add('open');
-//     document.getElementById('cartOverlay')?.classList.add('active');
-//     document.body.style.overflow = 'hidden';
-// }
+function openCart() {
+    document.getElementById('cartSidebar')?.classList.add('open');
+    document.getElementById('cartOverlay')?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-// function closeCart() {
-//     document.getElementById('cartSidebar')?.classList.remove('open');
-//     document.getElementById('cartOverlay')?.classList.remove('active');
-//     document.body.style.overflow = '';
-// }
+function closeCart() {
+    document.getElementById('cartSidebar')?.classList.remove('open');
+    document.getElementById('cartOverlay')?.classList.remove('active');
+    document.body.style.overflow = '';
+}
 
 // Category filter
 function initFilter() {
@@ -144,16 +143,15 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCart();
     initFilter();
 
-    // ─── Sidebar open/close listeners (commented out) ───
     // document.getElementById('cartToggleBtn')?.addEventListener('click', openCart);
 
-    // document.getElementById('cartCloseBtn')?.addEventListener('click', closeCart);
+    document.getElementById('cartCloseBtn')?.addEventListener('click', closeCart);
 
-    // document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
+    document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
 
-    // document.addEventListener('keydown', e => {
-    //     if (e.key === 'Escape') closeCart();
-    // });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeCart();
+    });
 
     document.getElementById('displayMenu')?.addEventListener('click', e => {
         const btn = e.target.closest('.add-to-cart-btn');
@@ -162,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const { id, name, price, image } = btn.dataset;
         addToCart(id, name, price, image);
         renderCart();
-        // openCart(); // sidebar disabled
+        openCart();
 
         btn.textContent = 'Added!';
         btn.classList.add('added');
