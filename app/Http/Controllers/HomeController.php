@@ -14,6 +14,8 @@ class HomeController extends Controller
         $drinks = MenuItem::where('category', 'Drinks')->get();
         $desserts = MenuItem::where('category', 'Desserts')->get();
 
+        $galleryImages = Gallery::latest('uploadedAt')->take(5)->get();
+
         return view('customer.home', compact('starters', 'pizzas', 'drinks', 'desserts'));
     }
 

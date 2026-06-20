@@ -478,7 +478,7 @@
 .gallery-left {
     grid-column: 1;
     grid-row: 1;
-    background-image: var(--gallery-img1);
+    /* background-image: var(--gallery-img1); */
     background-size: cover;
     background-position: center;
 }
@@ -510,13 +510,13 @@
 }
 
 .gallery-center-mid {
-    background-image: var(--gallery-img2);
+    /* background-image: var(--gallery-img2); */
     background-size: cover;
     background-position: center top;
 }
 
 .gallery-center-bottom {
-    background-image: var(--gallery-img3);
+    /* background-image: var(--gallery-img3); */
     background-size: cover;
     background-position: center;
 }
@@ -531,13 +531,13 @@
 }
 
 .gallery-right-top {
-    background-image: var(--gallery-img4);
+    /* background-image: var(--gallery-img4); */
     background-size: cover;
     background-position: center;
 }
 
 .gallery-right-bottom {
-    background-image: var(--gallery-img3);
+    /* background-image: var(--gallery-img3); */
     background-size: cover;
     background-position: center;
 }

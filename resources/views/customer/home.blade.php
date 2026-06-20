@@ -189,21 +189,41 @@
     <section class="gallery-section">
         <div class="gallery-grid">
             <!-- Left Large Image -->
-            <div class="gallery-item gallery-left"></div>
+            <div class="gallery-item gallery-left"
+                @if($galleryImages->get(0))
+                    style="background-image: url('{{ Storage::url($galleryImages->get(0)->imageUrl) }}');"
+                @endif
+            ></div>
 
             <!-- Center Column -->
             <div class="gallery-center">
                 <div class="gallery-title-box">
                     <h2 class="gallery-heading">OUR<br>GALLERY</h2>
                 </div>
-                <div class="gallery-item gallery-center-mid"></div>
-                <div class="gallery-item gallery-center-bottom"></div>
+                <div class="gallery-item gallery-center-mid"
+                    @if($galleryImages->get(1))
+                        style="background-image: url('{{ Storage::url($galleryImages->get(1)->imageUrl) }}');"
+                    @endif
+                ></div>
+                <div class="gallery-item gallery-center-bottom"
+                    @if($galleryImages->get(2))
+                        style="background-image: url('{{ Storage::url($galleryImages->get(2)->imageUrl) }}');"
+                    @endif
+                ></div>
             </div>
 
             <!-- Right Column -->
             <div class="gallery-right">
-                <div class="gallery-item gallery-right-top"></div>
-                <div class="gallery-item gallery-right-bottom"></div>
+                <div class="gallery-item gallery-right-top"
+                    @if($galleryImages->get(3))
+                        style="background-image: url('{{ Storage::url($galleryImages->get(3)->imageUrl) }}');"
+                    @endif
+                ></div>
+                <div class="gallery-item gallery-right-bottom"
+                    @if($galleryImages->get(4))
+                        style="background-image: url('{{ Storage::url($galleryImages->get(4)->imageUrl) }}');"
+                    @endif
+                ></div>
             </div>
         </div>
     </section>
