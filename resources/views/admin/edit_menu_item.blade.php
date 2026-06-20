@@ -14,6 +14,6 @@
 
 @section('admin_page_content')
     <article class="add-item">
-        @include('dialogs.add_menu_modal', ['item' => $menu])
+        @include('dialogs.edit_menu_modal', ['item' => $menu])
     </article>
 @endsection

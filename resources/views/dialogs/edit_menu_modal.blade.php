@@ -1,16 +1,26 @@
+@props(['item' => null])
+
 <div class="modal-overlay" id="addMenuOverlay" aria-hidden="true">
 
     <div class="modal" id="addMenuModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
 
         <div class="modal-header">
-            <h3 id="modalTitle">Add Menu Item</h3>
+            <h3 id="modalTitle">{{ $item ? 'Edit Menu Item' : 'Add Menu Item' }}</h3>
             <button class="modal-close" id="modalCloseBtn">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
 
-        <form action="{{ url('menu') }}" method="post" enctype="multipart/form-data" class="modal-form">
+        <form
+            action="{{ $item ? route('menu.update', $item->id) : url('menu') }}"
+            method="post"
+            enctype="multipart/form-data"
+            class="modal-form"
+        >
             @csrf
+            @if ($item)
+                @method('PATCH')
+            @endif
 
             <div class="form-group">
                 <label for="itemName">Name</label>
@@ -19,6 +29,7 @@
                     id="itemName"
                     name="itemName"
                     placeholder="Pizza Name"
+                    value="{{ old('itemName', $item->item_name ?? '') }}"
                     required
                 >
                 <span class="error">
@@ -30,7 +41,14 @@
 
             <div class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <input type="text" id="ingredients" name="ingredients" placeholder="e.g. Tomato, Mozzarella, Basil" required>
+                <input
+                    type="text"
+                    id="ingredients"
+                    name="ingredients"
+                    placeholder="e.g. Tomato, Mozzarella, Basil"
+                    value="{{ old('ingredients', $item->ingredients ?? '') }}"
+                    required
+                >
                 <span class="error">
                     @error('ingredients')
                         {{$message}}
@@ -45,7 +63,7 @@
                         type="number"
                         id="price"
                         name="price"
-                        value="0.00"
+                        value="{{ old('price', $item->price ?? '0.00') }}"
                         step="0.01"
                         min="0"
                         required
@@ -61,10 +79,14 @@
                     <label for="category">Category</label>
                     <div class="select-wrap">
                         <select id="item_category" name="category" required>
-                            <option value="starters">Starters</option>
-                            <option value="pizzas">Pizzas</option>
-                            <option value="drinks">Drinks</option>
-                            <option value="desserts">Desserts</option>
+                            @foreach (['starters' => 'Starters', 'pizzas' => 'Pizzas', 'drinks' => 'Drinks', 'desserts' => 'Desserts'] as $value => $label)
+                                <option
+                                    value="{{ $value }}"
+                                    {{ old('category', $item->category ?? '') === $value ? 'selected' : '' }}
+                                >
+                                    {{ $label }}
+                                </option>
+                            @endforeach
                         </select>
                         <i class="fa-solid fa-chevron-down select-icon"></i>
                     </div>
@@ -80,7 +102,7 @@
                 <label>Image</label>
                 <label for="item_image" class="upload-label">
                     <i class="fa-solid fa-upload"></i>
-                    <span id="uploadText">Upload Image</span>
+                    <span id="uploadText">{{ $item ? 'Change Image' : 'Upload Image' }}</span>
                     <input
                         type="file"
                         id="item_image"
@@ -90,6 +112,9 @@
                     >
                 </label>
                 <p class="upload-hint" id="uploadFileName"></p>
+                @if ($item && $item->item_image)
+                    <p class="upload-hint">Current image will be kept unless you upload a new one.</p>
+                @endif
                 <span class="error">
                     @error('image')
                         {{$message}}
@@ -99,7 +124,7 @@
 
             <div class="modal-actions">
                 <button type="button" class="btn-cancel" id="modalCancelBtn">Cancel</button>
-                <button type="submit" class="btn-submit">Add Item</button>
+                <button type="submit" class="btn-submit">{{ $item ? 'Save Changes' : 'Add Item' }}</button>
             </div>
 
         </form>
