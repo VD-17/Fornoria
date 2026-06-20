@@ -62,9 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape') closeNav();
     });
 
-    navbar.querySelectorAll('.nav-list a').forEach((link) => {
-        link.addEventListener('click', closeNav);
-    });
+    // navbar.querySelectorAll('.nav-list a').forEach((link) => {
+    //     link.addEventListener('click', () => {
+    //         setTimeout(closeNav, 0);
+    //     });
+    // });
 
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {

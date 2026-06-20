@@ -95,18 +95,19 @@ async function cacheFirstStrategy(request) {
     }
 }
 
-async function networkFirstStrategy(request) {
+async function networkFirstWithOfflineFallback(request) {
     try {
         const response = await fetch(request);
         if (response.ok) {
             const cache = await caches.open(DYNAMIC_CACHE);
             cache.put(request, response.clone());
-            await trimCache(DYNAMIC_CACHE, MAX_DYNAMIC_CACHE);
         }
         return response;
     } catch {
         const cached = await caches.match(request);
-        return cached || caches.match('/offline');
+        if (cached) return cached;
+        if (request.mode === 'navigate') return caches.match('/offline');
+        return new Response('Network error', { status: 503 });
     }
 }
 
