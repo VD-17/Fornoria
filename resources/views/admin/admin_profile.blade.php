@@ -6,10 +6,6 @@
     @vite('resources/css/profile.css')
 @endpush
 
-@push('scripts')
-    @vite('resources/js/profile.js')
-@endpush
-
 @section('heading', 'Profile')
 
 @section('admin_page_content')

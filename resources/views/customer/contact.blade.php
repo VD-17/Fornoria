@@ -6,10 +6,6 @@
     @vite('resources/css/contact.css')
 @endpush
 
-@push('scripts')
-    @vite('resources/js/contact.js')
-@endpush
-
 @section('page_content')
     <section class="contact section-p1">
         <header class="title">
