@@ -17,7 +17,7 @@ class HomeController extends Controller
 
         $galleryImages = Gallery::latest('uploadedAt')->take(5)->get();
 
-        return view('customer.home', compact('starters', 'pizzas', 'drinks', 'desserts'));
+        return view('customer.home', compact('starters', 'pizzas', 'drinks', 'desserts', 'galleryImages'));
     }
 
     public function about_index() {

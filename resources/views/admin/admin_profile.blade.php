@@ -10,8 +10,8 @@
 
 @section('admin_page_content')
 
-    <article class="profile">
-        <section class="edit-profile">
+    <div class="profile">
+        <div class="edit-profile">
             <h3>Edit Profile</h3>
             <form action="{{ route('admin.profile.edit') }}" method="POST">
                 @csrf
@@ -45,17 +45,17 @@
                     <button type="submit">Save Changes</button>
                 </div>
             </form>
-        </section>
+        </div>
 
-        <section class="sign-out">
+        <div class="sign-out">
             <h3>Sign Out</h3>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit">Sign Out</button>
             </form>
-        </section>
+        </div>
 
-        <section class="change-password">
+        <div class="change-password">
             <h3>Change Password</h3>
             <form action="{{ route('admin.change.password') }}" method="POST">
                 @csrf
@@ -81,7 +81,7 @@
                     <button type="submit">Change Password</button>
                 </div>
             </form>
-        </section>
+        </div>
 
         <!-- <div class="delete-account">
             <h3>Delete Account</h3>
@@ -91,7 +91,7 @@
                 <button type="submit">Delete</button>
             </form>
         </div> -->
-    </article>
+    </div>
 
     <!-- @include('layouts.profile')  -->
 
