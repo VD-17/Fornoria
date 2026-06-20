@@ -149,7 +149,7 @@ class CartController extends Controller
 
         $cart->cartItems()->delete();
 
-        if ($request->payment_method === 'PayFast') {
+        if ($request->payment_method === 'payfast') {
             return redirect()->route('payment.payfast', $order->order_id);
         }
 
