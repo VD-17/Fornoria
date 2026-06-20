@@ -61,7 +61,7 @@
                 </div>
             </form>
 
-            <aside class="contact-details">
+            <aside class="contact-details-c">
                 <h2 id="contact-info-heading" class="sr-only">Contact Information</h2>
                 <section class="details">
                     <h4>Contact Details</h4>
