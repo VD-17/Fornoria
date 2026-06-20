@@ -2,116 +2,116 @@
 
 const CART_KEY = 'fornoria_cart';
 
-function getCart() {
-    try {
-        return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-    } catch {
-        return [];
-    }
-}
+// function getCart() {
+//     try {
+//         return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+//     } catch {
+//         return [];
+//     }
+// }
 
-function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
+// function saveCart(cart) {
+//     localStorage.setItem(CART_KEY, JSON.stringify(cart));
+// }
 
-function addToCart(id, name, price, image) {
-    const cart = getCart();
-    const existing = cart.find(item => item.id === id);
-    if (existing) {
-        existing.qty += 1;
-    } else {
-        cart.push({ id, name, price: parseFloat(price), image, qty: 1 });
-    }
-    saveCart(cart);
-    return cart;
-}
+// function addToCart(id, name, price, image) {
+//     const cart = getCart();
+//     const existing = cart.find(item => item.id === id);
+//     if (existing) {
+//         existing.qty += 1;
+//     } else {
+//         cart.push({ id, name, price: parseFloat(price), image, qty: 1 });
+//     }
+//     saveCart(cart);
+//     return cart;
+// }
 
-function removeFromCart(id) {
-    const cart = getCart().filter(item => item.id !== id);
-    saveCart(cart);
-    return cart;
-}
+// function removeFromCart(id) {
+//     const cart = getCart().filter(item => item.id !== id);
+//     saveCart(cart);
+//     return cart;
+// }
 
-function updateQty(id, delta) {
-    const cart = getCart();
-    const item = cart.find(i => i.id === id);
-    if (!item) return cart;
-    item.qty = Math.max(1, item.qty + delta);
-    saveCart(cart);
-    return cart;
-}
+// function updateQty(id, delta) {
+//     const cart = getCart();
+//     const item = cart.find(i => i.id === id);
+//     if (!item) return cart;
+//     item.qty = Math.max(1, item.qty + delta);
+//     saveCart(cart);
+//     return cart;
+// }
 
-function cartTotal(cart) {
-    return cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-}
+// function cartTotal(cart) {
+//     return cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+// }
 
-function cartItemCount(cart) {
-    return cart.reduce((sum, i) => sum + i.qty, 0);
-}
+// function cartItemCount(cart) {
+//     return cart.reduce((sum, i) => sum + i.qty, 0);
+// }
 
-function renderCart() {
-    const cart = getCart();
-    const list = document.getElementById('cartItemsList');
-    const emptyState = document.getElementById('cartEmptyState');
-    const footer = document.getElementById('cartFooter');
-    const subtotal = document.getElementById('cartSubtotal');
-    const badge = document.getElementById('cartBadge');
+// function renderCart() {
+//     const cart = getCart();
+//     const list = document.getElementById('cartItemsList');
+//     const emptyState = document.getElementById('cartEmptyState');
+//     const footer = document.getElementById('cartFooter');
+//     const subtotal = document.getElementById('cartSubtotal');
+//     const badge = document.getElementById('cartBadge');
 
-    if (!list) return;
+//     if (!list) return;
 
-    list.querySelectorAll('.cart-row').forEach(r => r.remove());
+//     list.querySelectorAll('.cart-row').forEach(r => r.remove());
 
-    if (cart.length === 0) {
-        emptyState.style.display = 'block';
-        footer.style.display     = 'none';
-        badge.style.display      = 'none';
-        return;
-    }
+//     if (cart.length === 0) {
+//         emptyState.style.display = 'block';
+//         footer.style.display     = 'none';
+//         badge.style.display      = 'none';
+//         return;
+//     }
 
-    emptyState.style.display = 'none';
-    footer.style.display     = 'flex';
+//     emptyState.style.display = 'none';
+//     footer.style.display     = 'flex';
 
-    const count = cartItemCount(cart);
-    badge.textContent    = count > 99 ? '99+' : count;
-    badge.style.display  = 'flex';
+//     const count = cartItemCount(cart);
+//     badge.textContent    = count > 99 ? '99+' : count;
+//     badge.style.display  = 'flex';
 
-    subtotal.textContent = `R${cartTotal(cart).toFixed(0)}`;
+//     subtotal.textContent = `R${cartTotal(cart).toFixed(0)}`;
 
-    cart.forEach(item => {
-        const row = document.createElement('div');
-        row.className      = 'cart-row';
-        row.dataset.itemId = item.id;
+//     cart.forEach(item => {
+//         const row = document.createElement('div');
+//         row.className      = 'cart-row';
+//         row.dataset.itemId = item.id;
 
-        row.innerHTML = `
-            <div class="cart-row-product">
-                <img src="${item.image}" alt="${item.name}">
-                <span class="cart-row-product-name">${item.name}</span>
-            </div>
-            <span class="cart-row-price">R${item.price.toFixed(0)}</span>
-            <div class="cart-qty-controls">
-                <button class="cart-qty-btn qty-minus" data-id="${item.id}" aria-label="Decrease quantity">−</button>
-                <span class="cart-qty-value">${item.qty}</span>
-                <button class="cart-qty-btn qty-plus" data-id="${item.id}" aria-label="Increase quantity">+</button>
-            </div>
-            <span class="cart-row-total">R${(item.price * item.qty).toFixed(0)}</span>
-            <button class="cart-remove-btn" data-id="${item.id}" aria-label="Remove ${item.name}">✕</button>
-        `;
+//         row.innerHTML = `
+//             <div class="cart-row-product">
+//                 <img src="${item.image}" alt="${item.name}">
+//                 <span class="cart-row-product-name">${item.name}</span>
+//             </div>
+//             <span class="cart-row-price">R${item.price.toFixed(0)}</span>
+//             <div class="cart-qty-controls">
+//                 <button class="cart-qty-btn qty-minus" data-id="${item.id}" aria-label="Decrease quantity">−</button>
+//                 <span class="cart-qty-value">${item.qty}</span>
+//                 <button class="cart-qty-btn qty-plus" data-id="${item.id}" aria-label="Increase quantity">+</button>
+//             </div>
+//             <span class="cart-row-total">R${(item.price * item.qty).toFixed(0)}</span>
+//             <button class="cart-remove-btn" data-id="${item.id}" aria-label="Remove ${item.name}">✕</button>
+//         `;
 
-        list.appendChild(row);
-    });
-}
+//         list.appendChild(row);
+//     });
+// }
 
-function openCart() {
-    document.getElementById('cartSidebar')?.classList.add('open');
-    document.getElementById('cartOverlay')?.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+// function openCart() {
+//     document.getElementById('cartSidebar')?.classList.add('open');
+//     document.getElementById('cartOverlay')?.classList.add('active');
+//     document.body.style.overflow = 'hidden';
+// }
 
-function closeCart() {
-    document.getElementById('cartSidebar')?.classList.remove('open');
-    document.getElementById('cartOverlay')?.classList.remove('active');
-    document.body.style.overflow = '';
-}
+// function closeCart() {
+//     document.getElementById('cartSidebar')?.classList.remove('open');
+//     document.getElementById('cartOverlay')?.classList.remove('active');
+//     document.body.style.overflow = '';
+// }
 
 // Category filter
 function initFilter() {
@@ -140,52 +140,105 @@ function initFilter() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderCart();
+    // renderCart();
     initFilter();
 
     // document.getElementById('cartToggleBtn')?.addEventListener('click', openCart);
 
-    document.getElementById('cartCloseBtn')?.addEventListener('click', closeCart);
+    // document.getElementById('cartCloseBtn')?.addEventListener('click', closeCart);
 
-    document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
+    // document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
 
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeCart();
-    });
+    // document.addEventListener('keydown', e => {
+    //     if (e.key === 'Escape') closeCart();
+    // });
 
-    document.getElementById('displayMenu')?.addEventListener('click', e => {
-        const btn = e.target.closest('.add-to-cart-btn');
-        if (!btn) return;
+    // document.getElementById('displayMenu')?.addEventListener('click', e => {
+    //     const btn = e.target.closest('.add-to-cart-btn');
+    //     if (!btn) return;
 
-        const { id, name, price, image } = btn.dataset;
-        addToCart(id, name, price, image);
-        renderCart();
-        openCart();
+    //     const { id, name, price, image } = btn.dataset;
+    //     addToCart(id, name, price, image);
+    //     renderCart();
+    //     openCart();
 
-        btn.textContent = 'Added!';
-        btn.classList.add('added');
-        setTimeout(() => {
-            btn.textContent = 'Order';
-            btn.classList.remove('added');
-        }, 1200);
-    });
+    //     btn.textContent = 'Added!';
+    //     btn.classList.add('added');
+    //     setTimeout(() => {
+    //         btn.textContent = 'Order';
+    //         btn.classList.remove('added');
+    //     }, 1200);
+    // });
 
-    document.getElementById('cartItemsList')?.addEventListener('click', e => {
-        const minus = e.target.closest('.qty-minus');
-        const plus = e.target.closest('.qty-plus');
-        const remove = e.target.closest('.cart-remove-btn');
+    // document.getElementById('cartItemsList')?.addEventListener('click', e => {
+    //     const minus = e.target.closest('.qty-minus');
+    //     const plus = e.target.closest('.qty-plus');
+    //     const remove = e.target.closest('.cart-remove-btn');
 
-        if (minus) {
-            updateQty(minus.dataset.id, -1);
-            renderCart();
-        }
-        if (plus) {
-            updateQty(plus.dataset.id,  +1);
-            renderCart();
-        }
-        if (remove) {
-            removeFromCart(remove.dataset.id);
-            renderCart();
-        }
+    //     if (minus) {
+    //         updateQty(minus.dataset.id, -1);
+    //         renderCart();
+    //     }
+    //     if (plus) {
+    //         updateQty(plus.dataset.id,  +1);
+    //         renderCart();
+    //     }
+    //     if (remove) {
+    //         removeFromCart(remove.dataset.id);
+    //         renderCart();
+    //     }
+    // });
+
+    document.querySelectorAll('.add-to-cart-form').forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const btn = form.querySelector('.add-to-cart-btn');
+            const originalText = btn.textContent;
+
+            btn.disabled = true;
+            btn.textContent = 'Adding…';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value,
+                        'Accept': 'application/json',
+                    },
+                    body: new FormData(form),
+                });
+
+                if (response.status === 401) {
+                    window.location.href = '/login';
+                    return;
+                }
+
+                if (!response.ok) throw new Error(`Server error ${response.status}`);
+
+                const data = await response.json();
+
+                btn.textContent = '✓ Added';
+                btn.classList.add('added');
+
+                if (data.cart_count !== undefined) {
+                    document.querySelectorAll('#cartBadge, .cart-badge').forEach(badge => {
+                        badge.textContent = data.cart_count;
+                        badge.style.display = 'flex';
+                    });
+                }
+
+            } catch (err) {
+                console.error('Add to cart failed:', err);
+                btn.textContent = 'Error – retry';
+                btn.classList.add('error');
+            } finally {
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                    btn.classList.remove('added', 'error');
+                }, 1500);
+            }
+        });
     });
 });

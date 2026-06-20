@@ -46,5 +46,5 @@
         </section>
     </article>
 
-    @include('components.cart_sidebar')
+    <!-- @include('components.cart_sidebar') -->
 @endsection

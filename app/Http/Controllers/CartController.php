@@ -56,6 +56,14 @@ class CartController extends Controller
             ]);
         }
 
+        if ($request->wantsJson()) {
+            $cartCount = $cart->cartItems()->sum('quantity');
+            return response()->json([
+                'success' => true,
+                'cart_count' => $cartCount,
+            ]);
+        }
+
         return redirect()->back()->with('success', 'Item added to cart');
     }
 
@@ -101,7 +109,7 @@ class CartController extends Controller
         $cartItems = $cart->cartItems()->with('menuItem')->get();
 
         if ($cartItems->isEmpty()) {
-            return redirect()->router('cart.index')->with('error', 'Your cart is empty');
+            return redirect()->route('cart.index')->with('error', 'Your cart is empty');
         }
 
         $cartTotal = $cartItems->sum('total_price');
@@ -124,7 +132,7 @@ class CartController extends Controller
             ]);
         }
 
-        $paymentMethod = $request->payment_method === 'payfast' ? 'payfast' : 'PayInPerson';
+        $paymentMethod = $request->payment_method === 'PayFast' ? 'PayFast' : 'PayInPerson';
 
         Payment::create([
             'order_id' => $order->order_id,
@@ -132,7 +140,7 @@ class CartController extends Controller
             'paymentMethod' => $paymentMethod,
             'amount'        => $cartTotal,
             'transaction_id' => $paymentMethod === 'PayFast'
-                                    ? 'PF-PENDING-' . $order->order_id  // replaced after PayFast callback
+                                    ? 'PF-PENDING-' . $order->order_id
                                     : 'IN-PERSON-'  . $order->order_id,
             'dateOfPayment' => Carbon::now(),
             'paymentStatus' => $paymentMethod === 'PayFast' ? 'pending' : 'pending',

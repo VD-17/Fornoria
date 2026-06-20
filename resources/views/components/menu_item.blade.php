@@ -41,7 +41,7 @@
 
     @if ($showOrder)
         <div class="menu-actions">
-            <form action="{{ route('cart.add')}}" method="post">
+            <form action="{{ route('cart.add')}}" method="post" class="add-to-cart-form">
                 @csrf
                 <input type="hidden" name="menuItem_id" value="{{ $item->id }}">
                 <button type="submit" class="order-btn add-to-cart-btn" aria-label="Order {{ $item->item_name }}">
