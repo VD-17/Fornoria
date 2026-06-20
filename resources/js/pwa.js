@@ -1,3 +1,6 @@
+// pwa.js
+// Events for install pwa
+
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', async () => {
@@ -35,10 +38,10 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+// Shows a toast prompting the user to refresh when a new SW version is installed
 function showUpdateToast(newWorker) {
-    // Reuse the existing Fornoria toast system if available, else create one
     const existing = document.getElementById('pwa-update-toast');
-    if (existing) return; // prevent duplicates
+    if (existing) return;
 
     const toast = document.createElement('div');
     toast.id = 'pwa-update-toast';
@@ -52,7 +55,7 @@ function showUpdateToast(newWorker) {
         animation: slideUp .3s ease;
     `;
     toast.innerHTML = `
-        <span>🍕 A fresh update is ready!</span>
+        <span>A fresh update is ready!</span>
         <button id="pwa-update-btn" style="
             background:#c0392b; color:#fff; border:none; border-radius:4px;
             padding:.4rem .9rem; cursor:pointer; font-size:.85rem; letter-spacing:.5px;
@@ -78,6 +81,7 @@ function showUpdateToast(newWorker) {
 // Install
 let deferredPrompt = null;
 
+// Listens for the install prompt and wires up the install button
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
@@ -100,6 +104,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     }
 });
 
+// Clears install UI once the app is installed
 window.addEventListener('appinstalled', () => {
     deferredPrompt = null;
     const installBtn = document.getElementById('pwa-install-btn');
@@ -107,6 +112,7 @@ window.addEventListener('appinstalled', () => {
     console.log('[PWA] App installed successfully.');
 });
 
+// Displays a fixed banner indicating the user is offline
 function showOfflineBanner() {
     let banner = document.getElementById('pwa-offline-banner');
     if (!banner) {
@@ -118,11 +124,12 @@ function showOfflineBanner() {
             padding: .6rem 1rem; font-size: .85rem; letter-spacing: .5px;
             z-index: 10000; font-family: 'Lato', sans-serif;
         `;
-        banner.textContent = '⚠️  You are offline. Some features may be unavailable.';
+        banner.textContent = '⚠️ You are offline. Some features may be unavailable.';
         document.body.prepend(banner);
     }
 }
 
+// Removes the offline banner
 function hideOfflineBanner() {
     const banner = document.getElementById('pwa-offline-banner');
     if (banner) banner.remove();
@@ -133,7 +140,7 @@ window.addEventListener('online',  hideOfflineBanner);
 
 if (!navigator.onLine) showOfflineBanner();
 
-// Background sync helper
+// Queues a payload in IndexedDB and registers a background sync tag
 export async function queueForSync(storeName, payload) {
     const db = await openIDB();
     await new Promise((resolve, reject) => {
@@ -150,6 +157,7 @@ export async function queueForSync(storeName, payload) {
     }
 }
 
+// Opens (or creates) the IndexedDB database for offline storage
 function openIDB() {
     return new Promise((resolve, reject) => {
         const req = indexedDB.open('fornoria-offline', 1);

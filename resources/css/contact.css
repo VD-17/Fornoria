@@ -157,16 +157,28 @@
 
     .contact-row {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form-wrap {
+        flex: none;
+        width: 100%;
+        max-width: 480px;
     }
 
     .contact-details-c {
         width: 100%;
+        max-width: 480px;
     }
 }
 
 @media (max-width: 480px) {
     .contact {
         padding: 20px 16px;
+    }
+
+    .contact-form-wrap {
+        max-width: 100%;
     }
 
     .contact-form input,
@@ -180,6 +192,7 @@
     }
 
     .contact-details-c {
+        max-width: 100%;
         padding: 28px 20px;
     }
 

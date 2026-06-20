@@ -82,6 +82,7 @@ section {
     font-weight: 700;
     font-size: 18px;
     position: relative;
+    z-index: 1;
 }
 
 .title::after {
@@ -105,6 +106,7 @@ section {
 
 .btn-cta {
     display: inline-block;
+    align-items: center;
     background: var(--secondary);
     color: var(--light);
     font-family: var(--font-body);

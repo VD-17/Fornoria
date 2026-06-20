@@ -1,6 +1,7 @@
 header {
     position: relative;
     z-index: 1000;
+    isolation: isolate;
 }
 
 /* Topbar  */
@@ -504,7 +505,8 @@ footer > p i {
 }
 
 @media (max-width: 1024px) {
-    .topbar div:nth-child(4) {
+    .topbar,
+    .separator {
         display: none;
     }
 
@@ -514,8 +516,6 @@ footer > p i {
 
 
 @media (max-width: 768px) {
-    /* .topbar div:nth-child(n+2) { display: none; } */
-
     .nav-open-btn { display: flex; }
 
     .navbar {
@@ -606,4 +606,3 @@ footer > p i {
         padding: 5px 12px;
     }
 }
-

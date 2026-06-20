@@ -35,7 +35,7 @@
                         <tbody>
                             @foreach ($cartItems as $cartItem)
                                 <tr>
-                                    <td>
+                                    <td data-label = "Product">
                                         <figure class="product-detail">
                                             <img
                                                 src="{{ $cartItem->menuItem->item_image ? Storage::url($cartItem->menuItem->item_image) : asset('images/placeholder.png') }}"
@@ -44,8 +44,8 @@
                                             <figcaption>{{ $cartItem->menuItem->item_name }}</figcaption>
                                         </figure>
                                     </td>
-                                    <td>R{{ number_format($cartItem->menuItem->price, 0) }}</td>
-                                    <td>
+                                    <td data-label = "Price">R{{ number_format($cartItem->menuItem->price, 0) }}</td>
+                                    <td data-label = "Qty">
                                         <div class="qty-control">
                                             <button class="qty-btn decrease-btn"
                                                     data-id="{{ $cartItem->cartItem_id }}"
@@ -62,7 +62,7 @@
                                             </button>
                                         </div>
                                     </td>
-                                    <td class="item-total" id="total-{{ $cartItem->cartItem_id }}">
+                                    <td data-label="Total" class="item-total" id="total-{{ $cartItem->cartItem_id }}">
                                         R{{ number_format($cartItem->total_price, 0) }}
                                     </td>
                                     <td>

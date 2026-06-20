@@ -1,4 +1,5 @@
 // Headers.js
+// Handles header events such as opens and closes profile dropdown and navigation bar
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dropdownContent.addEventListener('click', (e) => e.stopPropagation());
     }
 
+    // Opens profile dropdown
     function openDropdown() {
         dropdownOpen = true;
         dropdownContent.classList.add('show');
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userProfile.setAttribute('aria-expanded', 'true');
     }
 
+    // Closes profile doropdown
     function closeDropdown() {
         dropdownOpen = false;
         dropdownContent.classList.remove('show');
@@ -49,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navbar
     const navOpenBtn  = document.getElementById('navOpenBtn');
     const navCloseBtn = document.getElementById('navCloseBtn');
-    const navbar      = document.getElementById('navbar');
-    const navOverlay  = document.getElementById('navOverlay');
+    const navbar = document.getElementById('navbar');
+    const navOverlay = document.getElementById('navOverlay');
 
     if (!navOpenBtn || !navbar) return;
 
@@ -75,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Open navigation
     function openNav() {
         navbar.classList.add('open');
         navOverlay?.classList.add('active');
@@ -83,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
     }
 
+    // Closes navigation
     function closeNav() {
         navbar.classList.remove('open');
         navOverlay?.classList.remove('active');

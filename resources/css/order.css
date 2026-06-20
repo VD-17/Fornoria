@@ -602,7 +602,7 @@ body {
         padding: 0 12px 40px;
     }
 
-    /* Menu grid — 2 columns minimum on small screens */
+    /* Menu grid */
     .display-menu {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 1rem;
@@ -623,14 +623,14 @@ body {
         flex-wrap: wrap;
     }
 
-    /* Cart sidebar columns — tighten on very small screens */
+    /* Cart sidebar columns */
     .cart-col-headings {
         grid-template-columns: 2fr 1fr 1fr 0.4fr;
         padding: 10px 14px 8px;
     }
 
     .cart-col-headings span:nth-child(3) {
-        display: none; /* hide "qty" label, keep controls */
+        display: none;
     }
 
     .cart-row {
@@ -639,6 +639,6 @@ body {
     }
 
     .cart-row-qty {
-        display: none; /* hide plain qty, qty controls stay */
+        display: none;
     }
 }

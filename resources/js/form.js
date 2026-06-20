@@ -1,14 +1,19 @@
+// form.js
+// handles opening and closing a modal popup that displays a contact
+// form's details (subject, sender, date, message)
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    const overlay  = document.getElementById('addFormOverlay');
+    const overlay = document.getElementById('addFormOverlay');
     const closeBtn = document.getElementById('modalCloseBtn');
 
     // Modal field targets
-    const modalTitle   = document.getElementById('modalTitle');
-    const modalFrom    = document.getElementById('modalFrom');
-    const modalDate    = document.getElementById('modalDate');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalFrom = document.getElementById('modalFrom');
+    const modalDate = document.getElementById('modalDate');
     const modalMessage = document.getElementById('modalMessage');
 
+    // Fill modal with data and show it
     function openModal(data) {
         modalTitle.textContent = data.subject;
         modalFrom.textContent = `${data.name} (${data.email})`;
@@ -22,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.focus();
     }
 
+    // Hide modal and restore page state
     function closeModal() {
         overlay.classList.remove('is-open');
         overlay.setAttribute('aria-hidden', 'true');

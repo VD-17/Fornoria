@@ -390,22 +390,69 @@
         display: none;
     }
 
-    .cart tbody td {
+    .cart table,
+    .cart tbody,
+    .cart tbody tr {
         display: block;
-        text-align: right;
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-
-    .cart tbody td:first-child {
-        text-align: left;
+        width: 100%;
     }
 
     .cart tbody tr {
-        display: block;
         margin-bottom: 16px;
         border: 1px solid var(--light);
         border-radius: 6px;
-        padding: 8px;
+        padding: 14px 12px;
+        background-color: var(--light);
+    }
+
+    .cart tbody td {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 4px;
+        font-size: 0.9rem;
+        background-color: transparent;
+        border-bottom: 1px dashed rgba(44, 44, 44, 0.15);
+        position: relative;
+    }
+
+    .cart tbody td:last-child {
+        border-bottom: none;
+        padding: 8px 4px 0;
+    }
+
+    /* Column labels since thead is hidden */
+    .cart tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 4px;
+        font-family: var(--font-body);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--primary);
+        opacity: 0.55;
+    }
+
+    .cart tbody td:first-child::before,
+    .cart tbody td:last-child::before {
+        display: none;
+    }
+
+    .product-detail {
+        align-items: center;
+        margin: 0 auto;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .product-detail figcaption {
+        text-align: left;
+    }
+
+    .qty-control {
+        margin: 0 auto;
     }
 }

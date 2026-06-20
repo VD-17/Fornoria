@@ -1,14 +1,18 @@
 // cart.js
+// Handles cart events such as increase or decrease quantity,
+// calculate total, handle delivery and payment toggle buttons and shows toast
+
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Handle +/- quantity buttons
     document.querySelectorAll('.increase-btn, .decrease-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
-            const btn        = e.currentTarget;
+            const btn = e.currentTarget;
             const cartItemId = btn.dataset.id;
-            const price      = parseFloat(btn.dataset.price);
+            const price = parseFloat(btn.dataset.price);
             const isIncrease = btn.classList.contains('increase-btn');
 
-            const qtySpan   = document.getElementById(`qty-${cartItemId}`);
+            const qtySpan = document.getElementById(`qty-${cartItemId}`);
             const totalCell = document.getElementById(`total-${cartItemId}`);
 
             let currentQty = parseInt(qtySpan.textContent.trim());
@@ -16,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const newQty = isIncrease ? currentQty + 1 : currentQty - 1;
 
-            qtySpan.textContent   = newQty;
+            qtySpan.textContent = newQty;
             totalCell.textContent = `R${formatNumber(newQty * price)}`;
             updateCartTotalDisplay();
 
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } catch (err) {
                 // Roll back optimistic update on any failure
-                qtySpan.textContent   = currentQty;
+                qtySpan.textContent = currentQty;
                 totalCell.textContent = `R${formatNumber(currentQty * price)}`;
                 updateCartTotalDisplay();
                 showToast('Could not update quantity. Please try again.');
@@ -57,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Handle "Add to cart" buttons
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
             const btn = e.currentTarget;
@@ -72,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': getCsrfToken(),
-                        'Accept':       'application/json',
+                        'Accept': 'application/json',
                     },
                     body: JSON.stringify({ menuItem_id: menuItemId, quantity: 1 }),
                 });
@@ -96,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.add('error');
             } finally {
                 setTimeout(() => {
-                    btn.disabled    = false;
+                    btn.disabled = false;
                     btn.textContent = 'Order';
                     btn.classList.remove('added', 'error');
                 }, 2000);
@@ -104,17 +109,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Delivery method & payment method selection ---
+    // Delivery method & payment method selection
     const deliveryButtons = document.querySelectorAll('.delivery-btn');
-    const paymentButtons  = document.querySelectorAll('.payment-btn');
-    const deliveryInput   = document.getElementById('delivery_method_input');
-    const paymentInput    = document.getElementById('payment_method_input');
-    const addressField    = document.getElementById('address-field');
-    const addressInput    = document.getElementById('address');
-    const checkoutForm    = document.getElementById('checkout-form');
-    const checkoutError   = document.getElementById('checkout-error');
+    const paymentButtons = document.querySelectorAll('.payment-btn');
+    const deliveryInput = document.getElementById('delivery_method_input');
+    const paymentInput = document.getElementById('payment_method_input');
+    const addressField = document.getElementById('address-field');
+    const addressInput = document.getElementById('address');
+    const checkoutForm = document.getElementById('checkout-form');
+    const checkoutError = document.getElementById('checkout-error');
 
     if (checkoutForm) {
+        // Toggle active delivery method, show/require address field if "deliver"
         deliveryButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 deliveryButtons.forEach(b => b.classList.remove('active'));
@@ -133,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Toggle active payment method
         paymentButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 paymentButtons.forEach(b => b.classList.remove('active'));
@@ -142,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Validate required selections before allowing checkout submit
         checkoutForm.addEventListener('submit', (e) => {
             if (!deliveryInput.value) {
                 e.preventDefault();
@@ -163,17 +171,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Show checkout validation error message
     function showCheckoutError(message) {
         if (!checkoutError) return;
         checkoutError.textContent = message;
         checkoutError.style.display = 'block';
     }
 
+    // Hide checkout validation error message
     function hideCheckoutError() {
         if (!checkoutError) return;
         checkoutError.style.display = 'none';
     }
 
+    // Recalculate and display cart total from all item rows
     function updateCartTotalDisplay() {
         let total = 0;
         document.querySelectorAll('.item-total').forEach(cell => {
@@ -184,10 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (display) display.textContent = `R${formatNumber(total)}`;
     }
 
+    // Format a number as a locale-aware string (no decimals)
     function formatNumber(value) {
         return parseFloat(value).toLocaleString('en-ZA', { maximumFractionDigits: 0 });
     }
 
+    // Disable/enable +/- buttons for a cart row while a request is in flight
     function setRowLoading(cartItemId, loading) {
         document.querySelectorAll(
             `.increase-btn[data-id="${cartItemId}"], .decrease-btn[data-id="${cartItemId}"]`
@@ -197,17 +210,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Read CSRF token from page meta tag
     function getCsrfToken() {
         return document.querySelector('meta[name="csrf-token"]')?.content ?? '';
     }
 
+    // Update cart icon badge count
     function updateCartBadge(count) {
         document.querySelectorAll('#cart-badge, .cart-badge').forEach(badge => {
-            badge.textContent   = count;
+            badge.textContent = count;
             badge.style.display = count > 0 ? 'inline-flex' : 'none';
         });
     }
 
+    // Show a temporary toast notification
     function showToast(message) {
         document.querySelector('.cart-toast')?.remove();
 
@@ -216,30 +232,30 @@ document.addEventListener('DOMContentLoaded', () => {
         toast.textContent = message;
 
         Object.assign(toast.style, {
-            position:     'fixed',
-            bottom:       '24px',
-            right:        '24px',
-            background:   '#c0633a',
-            color:        '#f5f0e8',
-            padding:      '12px 20px',
+            position: 'fixed',
+            bottom: '24px',
+            right: '24px',
+            background: '#c0633a',
+            color: '#f5f0e8',
+            padding: '12px 20px',
             borderRadius: '6px',
-            fontFamily:   'Raleway, sans-serif',
-            fontSize:     '0.9rem',
-            fontWeight:   '700',
-            boxShadow:    '0 4px 16px rgba(0,0,0,0.35)',
-            zIndex:       '9999',
-            opacity:      '0',
-            transform:    'translateY(10px)',
-            transition:   'opacity 0.25s ease, transform 0.25s ease',
+            fontFamily: 'Raleway, sans-serif',
+            fontSize: '0.9rem',
+            fontWeight: '700',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.35)',
+            zIndex: '9999',
+            opacity: '0',
+            transform: 'translateY(10px)',
+            transition: 'opacity 0.25s ease, transform 0.25s ease',
         });
 
         document.body.appendChild(toast);
         requestAnimationFrame(() => {
-            toast.style.opacity   = '1';
+            toast.style.opacity = '1';
             toast.style.transform = 'translateY(0)';
         });
         setTimeout(() => {
-            toast.style.opacity   = '0';
+            toast.style.opacity = '0';
             toast.style.transform = 'translateY(10px)';
             setTimeout(() => toast.remove(), 300);
         }, 2500);

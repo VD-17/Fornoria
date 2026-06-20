@@ -699,8 +699,6 @@
 }
 
 /* Responsive */
-/* Consolidate to two main breakpoints: 768px and 480px */
-
 @media (max-width: 768px) {
     /* Hero */
     .slogan h1 {
@@ -712,7 +710,39 @@
         padding: 0.85rem 1.5rem;
     }
 
-    /* About — stack vertically */
+    /* Menu — scale dome + bg images together so they stay aligned */
+    .dome-menu-heading {
+        width: 320px;
+        height: 220px;
+        margin-top: 100px;
+    }
+
+    .dome-menu-heading h1 {
+        font-size: 2.2rem;
+    }
+
+    .bg-image1,
+    .bg-image2 {
+        width: 220px;
+        height: 300px;
+    }
+
+    .bg-image1 {
+        top: 20px;
+        right: 10px;
+    }
+
+    .bg-image2 {
+        top: -30px;
+        left: 0;
+    }
+
+    .view-menu {
+        margin-top: 230px;
+        padding: 60px 1.5rem 0;
+    }
+
+    /* About */
     .about {
         grid-template-columns: 1fr;
         grid-template-rows: 260px auto 260px;
@@ -746,6 +776,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         height: auto;
+        gap: 10px;
     }
 
     .gallery-left,
@@ -753,6 +784,9 @@
     .gallery-right {
         grid-column: 1;
         grid-row: auto;
+    }
+
+    .gallery-left {
         height: 220px;
     }
 
@@ -760,6 +794,14 @@
         display: flex;
         flex-direction: column;
         height: auto;
+        gap: 10px;
+    }
+
+    .gallery-right {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
     }
 
     .gallery-title-box {
@@ -770,7 +812,8 @@
     .gallery-center-bottom,
     .gallery-right-top,
     .gallery-right-bottom {
-        height: 200px;
+        height: 400px;
+        flex-shrink: 0;
     }
 
     /* Reservation form */
@@ -812,18 +855,42 @@
 
     /* Dome heading */
     .dome-menu-heading {
-        width: 280px;
-        height: 200px;
+        width: 260px;
+        height: 180px;
+        margin-top: 90px;
     }
 
     .dome-menu-heading h1 {
-        font-size: 2rem;
+        font-size: 1.7rem;
+    }
+
+    .dome-menu-heading img {
+        width: 60px;
+    }
+
+    .dome-menu-heading h4 {
+        font-size: 1rem;
     }
 
     .bg-image1,
     .bg-image2 {
-        width: 110px;
-        height: 140px;
+        width: 150px;
+        height: 220px;
+    }
+
+    .bg-image1 {
+        top: 10px;
+        right: 0;
+        margin-right: 10px;
+    }
+
+    .bg-image2 {
+        top: -20px;
+        left: 0;
+    }
+
+    .view-menu {
+        margin-top: 190px;
     }
 
     /* Reservation */

@@ -1,4 +1,5 @@
 // order.js
+// Handles menu item filter
 
 const CART_KEY = 'fornoria_cart';
 

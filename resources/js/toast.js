@@ -1,7 +1,8 @@
 // toast.js
+// To auto-dismiss toast notifications
 
 (function () {
-    const AUTO_DISMISS_MS = 5000; // matches CSS progress bar duration
+    const AUTO_DISMISS_MS = 5000;
 
     function dismissToast(toast) {
         toast.classList.add('toast-hiding');
