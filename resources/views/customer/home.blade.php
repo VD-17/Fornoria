@@ -47,7 +47,7 @@
         <div class="view-menu">
             <div class="menus">
                 <section class="categories">
-                    <h3><span>STARTERS</span></h3>
+                    <h3>STARTERS</h3>
                     <div class="items-grid">
                         @forelse ($starters as $starter)
                             <div class="menu-item">

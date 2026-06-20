@@ -217,7 +217,7 @@
     border-radius: 6px;
     padding: 70px 2rem 0;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-    margin-top: 300px;
+    margin-top: 380px;
 }
 
 .menus {
@@ -236,7 +236,7 @@
     font-family: var(--font-heading);
     font-size: 0.85rem;
     font-weight: 700;
-    /* letter-spacing: 0.01em; */
+    letter-spacing: 0.01em;
     color: var(--accent);
     padding-bottom: 10px;
     margin-bottom: 4px;
@@ -700,6 +700,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    :root {
+        --header-height: 100px;
+    }
+    
     /* Hero */
     .slogan h1 {
         font-size: 2.4rem;
@@ -710,7 +714,7 @@
         padding: 0.85rem 1.5rem;
     }
 
-    /* Menu — scale dome + bg images together so they stay aligned */
+    /* Menu  */
     .dome-menu-heading {
         width: 320px;
         height: 220px;
@@ -738,7 +742,7 @@
     }
 
     .view-menu {
-        margin-top: 230px;
+        margin-top: 300px;
         padding: 60px 1.5rem 0;
     }
 
@@ -890,7 +894,7 @@
     }
 
     .view-menu {
-        margin-top: 190px;
+        margin-top: 250px;
     }
 
     /* Reservation */

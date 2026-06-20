@@ -142,3 +142,9 @@ section {
     box-shadow: none;
     transform: none;
 }
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 100px;
+    }
+}
