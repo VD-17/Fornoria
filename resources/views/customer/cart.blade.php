@@ -85,6 +85,16 @@
                 <form action="{{ route('cart.placeOrder') }}" method="POST" id="checkout-form">
                     @csrf
 
+                    @if ($errors->any())
+                        <div class="checkout-error" style="display:block;">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="cart-total">
                         <hr>
                         <span>Cart Total: <em id="cart-total-display">R{{ number_format($cartTotal, 0) }}</em></span>

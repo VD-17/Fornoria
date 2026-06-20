@@ -12,6 +12,7 @@ use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 use function Symfony\Component\Clock\now;
 
@@ -101,7 +102,7 @@ class CartController extends Controller
     public function placeOrder(Request $request) {
         $request->validate([
             'delivery_method' => 'required|in:collect,deliver',
-            'address' => 'required|string|max:255',
+            'address' => 'required_if:delivery_method,deliver|nullable|string|max:255',
             'payment_method' => 'required|in:payfast,pay_in_person',
         ]);
 
@@ -148,7 +149,7 @@ class CartController extends Controller
 
         $cart->cartItems()->delete();
 
-        if ($request->payment_method === 'payfast') {
+        if ($request->payment_method === 'PayFast') {
             return redirect()->route('payment.payfast', $order->order_id);
         }
 
