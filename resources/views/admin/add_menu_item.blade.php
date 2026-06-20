@@ -43,4 +43,8 @@
 
     @include('dialogs.add_menu_modal')
 
+    @foreach ($menuItems as $item)
+        @include('dialogs.edit_menu_modal', ['menu' => $item])
+    @endforeach
+
 @endsection

@@ -44,10 +44,10 @@ class MenuController extends Controller
         return redirect()->route('menu.index')->with('success', 'Item added successfully');
     }
 
-    public function edit(MenuItem $menu)
-    {
-        return view('admin.edit_menu_item', compact('menu'));
-    }
+    // public function edit(MenuItem $menu)
+    // {
+    //     return view('admin.edit_menu_item', compact('menu'));
+    // }
 
     public function update(Request $request, MenuItem $menu)
     {

@@ -26,9 +26,12 @@
 
     @if ($showActions)
         <div class="menu-actions">
-            <a href="{{ route('menu.edit', $item->id) }}" class="action-btn edit-btn" aria-label="Edit {{ $item->item_name }}">
+            <!-- <a href="{{ route('menu.edit', $item->id) }}" class="action-btn edit-btn" aria-label="Edit {{ $item->item_name }}">
                 <i class="fa-solid fa-pen"></i>
-            </a>
+            </a> -->
+            <button type="button" class="action-btn edit-btn" data-modal-target="editMenuOverlay-{{ $item->id }}" aria-label="Edit {{ $item->item_name }}">
+                <i class="fa-solid fa-pen"></i>
+            </button>
             <form action="{{ route('menu.destroy', $item->id) }}" method="post" onsubmit="return confirm('Delete this item?')">
                 @csrf
                 @method('DELETE')

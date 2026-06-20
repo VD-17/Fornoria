@@ -60,4 +60,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Edit modals (one per menu item)
+    function openAnyModal(modal) {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        const firstInput = modal.querySelector('input, select');
+        if (firstInput) firstInput.focus();
+    }
+
+    function closeAnyModal(modal) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    // Open the matching edit modal when its edit button is clicked
+    document.querySelectorAll('.edit-btn[data-modal-target]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const modal = document.getElementById(btn.dataset.modalTarget);
+            if (modal) openAnyModal(modal);
+        });
+    });
+
+    // Wire close/cancel/outside-click/escape for every edit modal overlay
+    document.querySelectorAll('.modal-overlay[id^="editMenuOverlay-"]').forEach((modal) => {
+        const closeBtn = modal.querySelector('[id^="editModalCloseBtn-"]');
+        const cancelBtn = modal.querySelector('[id^="editModalCancelBtn-"]');
+
+        if (closeBtn) closeBtn.addEventListener('click', () => closeAnyModal(modal));
+        if (cancelBtn) cancelBtn.addEventListener('click', () => closeAnyModal(modal));
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeAnyModal(modal);
+        });
+
+        const fileInputEdit = modal.querySelector('input[type="file"]');
+        if (fileInputEdit) {
+            fileInputEdit.addEventListener('change', () => {
+                const file = fileInputEdit.files[0];
+                const textSpan = modal.querySelector('[id^="editUploadText-"]');
+                const hintP = modal.querySelector('[id^="editUploadFileName-"]');
+                if (file) {
+                    if (textSpan) textSpan.textContent = 'Image selected';
+                    if (hintP) hintP.textContent = file.name;
+                } else {
+                    if (textSpan) textSpan.textContent = 'Change Image';
+                    if (hintP) hintP.textContent = '';
+                }
+            });
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        document.querySelectorAll('.modal-overlay.is-open[id^="editMenuOverlay-"]').forEach((modal) => {
+            closeAnyModal(modal);
+        });
+    });
+
 });

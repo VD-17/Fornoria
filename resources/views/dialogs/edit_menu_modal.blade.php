@@ -1,35 +1,25 @@
-@props(['item' => null])
+<div class="modal-overlay" id="editMenuOverlay-{{ $menu->id }}" aria-hidden="true">
 
-<div class="modal-overlay" id="addMenuOverlay" aria-hidden="true">
-
-    <div class="modal" id="addMenuModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" id="editMenuModal-{{ $menu->id }}" role="dialog" aria-modal="true" aria-labelledby="editModalTitle-{{ $menu->id }}">
 
         <div class="modal-header">
-            <h3 id="modalTitle">{{ $item ? 'Edit Menu Item' : 'Add Menu Item' }}</h3>
-            <button class="modal-close" id="modalCloseBtn">
+            <h3 id="editModalTitle-{{ $menu->id }}">Edit Menu Item</h3>
+            <button type="button" class="modal-close" id="editModalCloseBtn-{{ $menu->id }}">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
 
-        <form
-            action="{{ $item ? route('menu.update', $item->id) : url('menu') }}"
-            method="post"
-            enctype="multipart/form-data"
-            class="modal-form"
-        >
+        <form action="{{ route('menu.update', $menu->id) }}" method="post" enctype="multipart/form-data" class="modal-form">
             @csrf
-            @if ($item)
-                @method('PATCH')
-            @endif
+            @method('PATCH')
 
             <div class="form-group">
-                <label for="itemName">Name</label>
+                <label for="edit_itemName-{{ $menu->id }}">Name</label>
                 <input
                     type="text"
-                    id="itemName"
+                    id="edit_itemName-{{ $menu->id }}"
                     name="itemName"
-                    placeholder="Pizza Name"
-                    value="{{ old('itemName', $item->item_name ?? '') }}"
+                    value="{{ old('itemName', $menu->item_name) }}"
                     required
                 >
                 <span class="error">
@@ -40,13 +30,12 @@
             </div>
 
             <div class="form-group">
-                <label for="ingredients">Ingredients</label>
+                <label for="edit_ingredients-{{ $menu->id }}">Ingredients</label>
                 <input
                     type="text"
-                    id="ingredients"
+                    id="edit_ingredients-{{ $menu->id }}"
                     name="ingredients"
-                    placeholder="e.g. Tomato, Mozzarella, Basil"
-                    value="{{ old('ingredients', $item->ingredients ?? '') }}"
+                    value="{{ old('ingredients', $menu->ingredients) }}"
                     required
                 >
                 <span class="error">
@@ -58,12 +47,12 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="price">Price</label>
+                    <label for="edit_price-{{ $menu->id }}">Price</label>
                     <input
                         type="number"
-                        id="price"
+                        id="edit_price-{{ $menu->id }}"
                         name="price"
-                        value="{{ old('price', $item->price ?? '0.00') }}"
+                        value="{{ old('price', $menu->price) }}"
                         step="0.01"
                         min="0"
                         required
@@ -76,13 +65,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="category">Category</label>
+                    <label for="edit_category-{{ $menu->id }}">Category</label>
                     <div class="select-wrap">
-                        <select id="item_category" name="category" required>
+                        <select id="edit_category-{{ $menu->id }}" name="category" required>
                             @foreach (['starters' => 'Starters', 'pizzas' => 'Pizzas', 'drinks' => 'Drinks', 'desserts' => 'Desserts'] as $value => $label)
                                 <option
                                     value="{{ $value }}"
-                                    {{ old('category', $item->category ?? '') === $value ? 'selected' : '' }}
+                                    {{ old('category', $menu->category) === $value ? 'selected' : '' }}
                                 >
                                     {{ $label }}
                                 </option>
@@ -100,21 +89,18 @@
 
             <div class="form-group">
                 <label>Image</label>
-                <label for="item_image" class="upload-label">
+                <label for="edit_item_image-{{ $menu->id }}" class="upload-label">
                     <i class="fa-solid fa-upload"></i>
-                    <span id="uploadText">{{ $item ? 'Change Image' : 'Upload Image' }}</span>
+                    <span id="editUploadText-{{ $menu->id }}">Change Image</span>
                     <input
                         type="file"
-                        id="item_image"
+                        id="edit_item_image-{{ $menu->id }}"
                         name="image"
                         accept="image/*"
                         class="upload-input"
                     >
                 </label>
-                <p class="upload-hint" id="uploadFileName"></p>
-                @if ($item && $item->item_image)
-                    <p class="upload-hint">Current image will be kept unless you upload a new one.</p>
-                @endif
+                <p class="upload-hint" id="editUploadFileName-{{ $menu->id }}"></p>
                 <span class="error">
                     @error('image')
                         {{$message}}
@@ -123,8 +109,8 @@
             </div>
 
             <div class="modal-actions">
-                <button type="button" class="btn-cancel" id="modalCancelBtn">Cancel</button>
-                <button type="submit" class="btn-submit">{{ $item ? 'Save Changes' : 'Add Item' }}</button>
+                <button type="button" class="btn-cancel" id="editModalCancelBtn-{{ $menu->id }}">Cancel</button>
+                <button type="submit" class="btn-submit">Save Changes</button>
             </div>
 
         </form>
