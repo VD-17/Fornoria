@@ -34,7 +34,7 @@ class AdminController extends Controller
         $order = Order::findOrFail($id);
 
         $request->validate([
-            'status' => ['required', 'in:preparing,out_for_delivery,delivered'],
+            'status' => ['required', 'in:pending,preparing,out_for_delivery,delivered'],
         ]);
 
         $order->status = $request->status;

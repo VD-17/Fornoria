@@ -91,7 +91,7 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::post('/orders/{orderId}/reorder', [CartController::class, 'reorder'])->name('order.reorder');
 
     // Payment
-    Route::get('/payment/payfast/{orderId}', [PaymentController::class, 'redirectToPayfast'])->name('payment.payfast');
+    Route::get('/payment/payfast/{orderId}', [PaymentController::class, 'redirectToPayFast'])->name('payment.payfast');
     Route::get('/payment/success/{orderId}', [PaymentController::class, 'success'])->name('payment.success');
     Route::get('/payment/cancel/{orderId}', [PaymentController::class, 'cancel'])->name('payment.cancel');
 

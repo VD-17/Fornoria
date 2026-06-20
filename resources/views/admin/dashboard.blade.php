@@ -98,16 +98,16 @@
                                         class="status-dropdown"
                                         onchange="this.form.submit()"
                                     >
-                                        <option value="pending" {{ $order->status === 'Pending' ? 'selected' : ''}}>
+                                        <option value="pending" {{ $order->status === 'pending' ? 'selected' : ''}}>
                                             Pending
                                         </option>
-                                        <option value="preparing" {{ $order->status === 'Preparing' ? 'selected' : '' }}>
+                                        <option value="preparing" {{ $order->status === 'preparing' ? 'selected' : '' }}>
                                             Preparing
                                         </option>
-                                        <option value="out_for_delivery" {{ $order->status === 'Out for Delivery' ? 'selected' : '' }}>
+                                        <option value="out_for_delivery" {{ $order->status === 'out_for_delivery' ? 'selected' : '' }}>
                                             Out for Delivery
                                         </option>
-                                        <option value="delivered" {{ $order->status === 'Delivered' ? 'selected' : '' }}>
+                                        <option value="delivered" {{ $order->status === 'delivered' ? 'selected' : '' }}>
                                             Delivered
                                         </option>
                                     </select>
