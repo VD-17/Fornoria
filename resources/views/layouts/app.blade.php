@@ -60,7 +60,7 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a href="#reservation" class="{{request()->is('reservation') ? 'active' : ''}}">RESERVATION</a>
+                        <a href="{{ route('home') }}#reservation" class="{{request()->is('reservation') ? 'active' : ''}}">RESERVATION</a>
                     </li>
 
                     <li class="navbar-item">
