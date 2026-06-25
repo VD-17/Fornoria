@@ -129,7 +129,6 @@
     text-align: center;
 }
 
-/* Highlighted contact info (phone & email) */
 .contact-details-c p.highlight {
     color: var(--accent);
     font-weight: 600;
@@ -149,6 +148,7 @@
     padding-bottom: 0;
 }
 
+/* responsiveness  */
 @media (max-width: 768px) {
     .contact {
         padding: 30px 24px;

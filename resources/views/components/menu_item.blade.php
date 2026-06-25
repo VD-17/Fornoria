@@ -1,5 +1,6 @@
 @use('Illuminate\Support\Facades\Storage')
 
+<!-- Components props  -->
 @props([
     'item',
     'showActions' => false,
@@ -7,10 +8,12 @@
 ])
 
 <div class="menu-item" data-category="{{ strtolower($item->category) }}">
+    <!-- Category label  -->
     <div class="category-badge">
         <span>{{ $item->category }}</span>
     </div>
 
+    <!-- Item image  -->
     <div class="item-pic">
         <img
             src="{{ $item->item_image ? Storage::url($item->item_image) : asset('images/placeholder.png') }}"
@@ -18,12 +21,14 @@
         >
     </div>
 
+    <!-- Item details  -->
     <div class="item-description">
         <h3 class="item-name">{{ $item->item_name }}</h3>
         <p class="item-ingredients">{{ $item->ingredients }}</p>
         <h4 class="item-price">R{{ number_format($item->price, 0) }}</h4>
     </div>
 
+    <!-- Admin edit/delete actions  -->
     @if ($showActions)
         <div class="menu-actions">
             <!-- <a href="{{ route('menu.edit', $item->id) }}" class="action-btn edit-btn" aria-label="Edit {{ $item->item_name }}">
@@ -42,6 +47,7 @@
         </div>
     @endif
 
+    <!-- Customer order action  -->
     @if ($showOrder)
         <div class="menu-actions">
             <form action="{{ route('cart.add')}}" method="post" class="add-to-cart-form">

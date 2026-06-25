@@ -55,6 +55,7 @@ header {
     display: block;
 }
 
+/* Navigation  */
 .navbar {
     display: flex;
     align-items: center;
@@ -102,6 +103,7 @@ header {
     display: none;
 }
 
+/* User profile dropdown  */
 .user-profile {
     display: flex;
     align-items: center;
@@ -432,9 +434,7 @@ footer > p i {
     margin-right: 4px;
 }
 
-/* =====================
-   RESPONSIVE
-===================== */
+/* Responsiveness  */
 
 @media (max-width: 900px) {
     footer {

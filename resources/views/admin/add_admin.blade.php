@@ -14,9 +14,11 @@
 
 @section('admin_page_content')
     <article class="add-admin">
+        <!-- Page Title  -->
         <header class="admin-topbar">
             <div class="admin-meta">
                 <h3>Add Admins</h3>
+                <!-- Page count  -->
                 <p>
                     @if ($admins)
                         {{ $admins->count() }} admins
@@ -25,6 +27,7 @@
                     @endif
                 </p>
             </div>
+            <!-- Add admin modal  -->
             <button class="add-btn" id="openAddAdminModal">
                 <i class="fa-solid fa-plus"></i>
                 Add Admin
@@ -39,6 +42,7 @@
             <div class="alert alert-error">{{ session('error') }}</div>
         @endif -->
 
+        <!-- Displaying admin  -->
         <section class="display-admin">
             <table class="admin-table">
                 <thead>
@@ -82,5 +86,6 @@
         </section>
     </article>
 
+    <!-- Add admin modal  -->
     @include('dialogs.add_admin_modal')
 @endsection

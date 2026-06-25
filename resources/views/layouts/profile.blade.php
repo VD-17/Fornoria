@@ -1,4 +1,5 @@
 <div class="profile">
+    <!-- Edit profile form  -->
     <div class="edit-profile">
         <h3>Edit Profile</h3>
         <form action="{{ route('profile.edit') }}" method="POST">
@@ -35,14 +36,16 @@
         </form>
     </div>
 
+    <!-- Signout  -->
     <div class="sign-out">
         <h3>Sign Out</h3>
-        <form action="{{ route('logout') }}" method="POST"> 
+        <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit">Sign Out</button>
         </form>
     </div>
 
+    <!-- Change password  -->
     <div class="change-password">
         <h3>Change Password</h3>
         <form action="{{ route('user.change.password') }}" method="POST">
@@ -71,6 +74,7 @@
         </form>
     </div>
 
+    <!-- Delete Account  -->
     <div class="delete-account">
         <h3>Delete Account</h3>
         <form action="{{ route('profile.delete', auth()->user()->id) }}" method="POST">  {{-- missing id param --}}

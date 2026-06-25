@@ -9,6 +9,7 @@
     min-height: 100vh;
 }
 
+/* Side bar  */
 .side-nav-bar {
     width: 215px;
     min-height: 100vh;
@@ -25,6 +26,7 @@
     transition: transform 0.25s ease;
 }
 
+/* logo  */
 .logo-wrap {
     display: flex;
     flex-direction: column;
@@ -63,6 +65,7 @@
     position: relative;
 }
 
+/* Close button for responsiveness  */
 .nav-close-btn {
     display: none;
     position: absolute;
@@ -82,7 +85,7 @@
     color: var(--accent);
 }
 
-/* ── Nav list ── */
+/* Nav list */
 .nav-list {
     list-style: none;
     padding: 4px 0;
@@ -133,6 +136,7 @@
     color: var(--accent);
 }
 
+/* Active nav item state  */
 .navbar-item.active {
     background-color: var(--accent);
     border-radius: 6px;
@@ -149,6 +153,7 @@
     color: var(--light);
 }
 
+/* Main content column  */
 .main-column {
     flex: 1;
     display: flex;
@@ -156,7 +161,7 @@
     min-width: 0;
 }
 
-/* ── Top bar ── */
+/* Top bar */
 .heading-topbar {
     height: 60px;
     background-color: var(--light);
@@ -185,6 +190,7 @@
     overflow-y: auto;
 }
 
+/* Hambuger menu  */
 .nav-open-btn {
     display: none;
     flex-direction: column;
@@ -220,6 +226,7 @@
     100% { transform: scaleX(0.55); }
 }
 
+/* Mobile overlay backdrop  */
 .nav-overlay {
     position: fixed;
     inset: 0;

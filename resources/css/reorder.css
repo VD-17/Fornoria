@@ -6,6 +6,7 @@ body {
     background-attachment: fixed;
 }
 
+/* Track order */
 .track-order {
     display: flex;
     flex-direction: column;
@@ -21,7 +22,7 @@ body {
     letter-spacing: 0.08em;
 }
 
-/* Tracking container — wraps all order cards */
+/* Tracking container */
 .tracking {
     display: flex;
     flex-direction: column;
@@ -40,7 +41,6 @@ body {
     gap: 14px;
 }
 
-/* Ref row: order ID left, date right */
 .ref {
     display: flex;
     justify-content: space-between;
@@ -63,13 +63,11 @@ body {
     line-height: 1.6;
 }
 
-/* "Item:", "Total:", "Payment Type:" labels — normal weight */
 .details p .label {
     font-weight: 400;
     color: var(--primary);
 }
 
-/* Total amount value in accent red */
 .details .total-value {
     font-weight: 700;
     color: var(--accent);

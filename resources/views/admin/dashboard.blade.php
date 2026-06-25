@@ -10,11 +10,13 @@
 
 @section('admin_page_content')
     <article class="dashboard-container">
+        <!-- Top heading  -->
         <header class="greetings">
             <h3><span>Hello</span>, {{ auth()->user()->name }}</h3>
             <p>Here's what's happening at Fornoria</p>
         </header>
 
+        <!-- Statistics  -->
         <section class="stats">
             <div class="item">
                 <div class="icon-name">
@@ -67,6 +69,7 @@
             </div>
         </section>
 
+        <!-- Recent order table -->
         <section class="orders">
             <div class="table-title">
                 <i class="fa-solid fa-clock"></i>

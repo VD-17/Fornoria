@@ -4,8 +4,8 @@
     padding: 24px;
     box-shadow: 0 2px 8px var(--shadow);
     margin: 20px;
-    overflow: hidden;   /* keeps rounded corners clean, nothing escapes the card */
-    min-width: 0;       /* safe default if this sits in a flex/grid parent */
+    overflow: hidden;
+    min-width: 0;
 }
 
 .table-title {
@@ -27,7 +27,7 @@
     margin: 0;
 }
 
-/* ── Scroll wrapper (handles tablet + phone) ── */
+/* Scroll  */
 .table-scroll {
     display: block;
     width: 100%;
@@ -38,7 +38,7 @@
 
 .reservation-table {
     width: 100%;
-    min-width: 720px;   /* table never shrinks below this; scroll kicks in instead */
+    min-width: 720px;
     border-collapse: collapse;
     font-size: 0.9rem;
     font-family: var(--font-body);
@@ -83,7 +83,7 @@
     white-space: normal;
 }
 
-/* ── Status badge ── */
+/* Status badge */
 .status-badge {
     display: inline-block;
     padding: 3px 12px;
@@ -113,7 +113,7 @@
     color: var(--primary);
 }
 
-/* ── Action buttons ── */
+/* Action buttons */
 .action-btn {
     background: none;
     border: none;
@@ -135,7 +135,7 @@
     color: var(--accent);
 }
 
-/* ── Responsive: tablet ── */
+/* Tablet */
 @media (max-width: 768px) {
     .reservations {
         margin: 12px;
@@ -154,7 +154,7 @@
     }
 }
 
-/* ── Responsive: phone ── */
+/* Phone */
 @media (max-width: 480px) {
     .reservations {
         margin: 8px;

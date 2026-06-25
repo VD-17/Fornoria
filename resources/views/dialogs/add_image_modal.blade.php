@@ -1,7 +1,9 @@
+<!-- Add Image modal  -->
 <div class="modal-overlay" id="addMenuOverlay" aria-hidden="true">
 
     <div class="modal" id="addImageModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
 
+    <!-- Heading  -->
         <div class="modal-header">
             <h3 id="modalTitle">Add Gallery Image</h3>
             <button class="modal-close" id="modalCloseBtn">
@@ -9,6 +11,7 @@
             </button>
         </div>
 
+        <!-- Add image form  -->
         <form action="{{ route('gallery.add') }}" method="post" enctype="multipart/form-data" class="modal-form">
             @csrf
 
@@ -33,6 +36,7 @@
                 </span>
             </div>
 
+            <!-- Action buttons  -->
             <div class="modal-actions">
                 <button type="button" class="btn-cancel" id="modalCancelBtn">Cancel</button>
                 <button type="submit" class="btn-submit">Add Image</button>

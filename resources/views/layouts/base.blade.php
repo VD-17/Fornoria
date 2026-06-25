@@ -15,6 +15,7 @@
     <link rel="apple-touch-icon" sizes="192x192" href="/logo-assets/website/Web-Icon-192_192x192.png">
     <link rel="icon" type="image/png" sizes="64x64" href="/logo-assets/email/Small-Icon-64_64x64.png">
 
+    <!-- Favicon and styles  -->
     <link rel="icon" href="images/icons/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite('resources/css/app.css')
@@ -22,6 +23,7 @@
     @stack('styles')
     <title>@yield('title', 'Fornoria')</title>
 
+    <!-- Global image variables  -->
     <style>
         :root { --bg-image: url("{{ asset('images/restaurant/background.jpeg') }}");
         --hero-img: url("{{ asset('images/restaurant/hero.jpeg')}}");
@@ -33,10 +35,13 @@
     </style>
 </head>
 <body @yield('body_class') @yield('body_style')>
+    <!-- Toast notifications  -->
     @include('components.toast')
 
+    <!-- Page content  -->
     @yield('content')
 
+    <!-- JS Scripts  -->
     @vite('resources/js/app.js')
     @vite(['resources/js/pwa.js'])
     @vite('resources/js/toast.js')

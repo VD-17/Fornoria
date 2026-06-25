@@ -1,7 +1,9 @@
+<!-- View enquire form modal  -->
 <div class="modal-overlay" id="addFormOverlay" aria-hidden="true">
 
     <div class="modal" id="addFormModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
 
+        <!-- Heading  -->
         <div class="modal-header">
             <h3 id="modalTitle"></h3>
             <button class="modal-close" id="modalCloseBtn">
@@ -9,6 +11,7 @@
             </button>
         </div>
 
+        <!-- Form details  -->
         <div class="form-details">
             <div class="detail">
                 <p><span>From:</span> <span id="modalFrom"></span></p>

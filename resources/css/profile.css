@@ -8,7 +8,7 @@
     gap: 16px;
 }
 
-/* Card Style - Shared by all sections */
+/* Card Style */
 .profile > div {
     background-color: var(--light);
     border-radius: 12px;
@@ -26,7 +26,7 @@
     margin-bottom: 4px;
 }
 
-/* ─── Edit Profile ─── */
+/* Edit Profile */
 .edit-profile .form-group {
     display: flex;
     flex-direction: column;
@@ -90,7 +90,7 @@
     transform: scale(0.98);
 }
 
-/* ─── Sign Out ─── */
+/* Sign Out */
 .sign-out form {
     display: flex;
     justify-content: center;
@@ -118,7 +118,7 @@
     transform: scale(0.98);
 }
 
-/* ─── Change Password ─── */
+/* Change Password */
 .change-password .form-group {
     display: flex;
     flex-direction: column;
@@ -150,7 +150,7 @@
     border-color: var(--secondary);
 }
 
-/* ─── Change Password ─── */
+/* Change Password */
 .change-password .submit {
     display: flex;
     justify-content: center;
@@ -178,7 +178,7 @@
     transform: scale(0.98);
 }
 
-/* ─── Delete Account ─── */
+/* Delete Account */
 .delete-account button {
     display: block;
     margin: 4px auto 0;
@@ -202,6 +202,7 @@
     transform: scale(0.98);
 }
 
+/* responsiveness  */
 @media (max-width: 480px) {
     .profile {
         margin: 16px auto;

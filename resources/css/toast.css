@@ -1,6 +1,6 @@
 .toast-container {
     position: fixed;
-    top: calc(var(--header-height) + 18px); /* sits 18px below your header */
+    top: calc(var(--header-height) + 18px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
@@ -9,7 +9,7 @@
     gap: 10px;
     width: max-content;
     max-width: min(480px, calc(100vw - 32px));
-    pointer-events: none; /* container itself is click-through */
+    pointer-events: none;
 }
 
 .toast {
@@ -109,12 +109,12 @@
     background: var(--accent);
 }
 
-/* Slide out class (added by JS) */
+/* Slide out class */
 .toast.toast-hiding {
     animation: toastSlideOut 0.3s cubic-bezier(0.06, 0.71, 0.55, 1) forwards;
 }
 
-/* ---- Keyframes ---- */
+/* Keyframes */
 @keyframes toastSlideIn {
     from {
         opacity: 0;
@@ -146,7 +146,7 @@
     to   { transform: scaleX(0); }
 }
 
-/* Responsive — full width on mobile */
+/* Responsive */
 @media (max-width: 480px) {
     .toast-container {
         left: 16px;

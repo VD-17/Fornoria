@@ -8,6 +8,7 @@
     background-attachment: fixed;
 }
 
+/* Title  */
 .admin-topbar {
     display: flex;
     align-items: flex-start;
@@ -57,6 +58,7 @@
     transform: translateY(0);
 }
 
+/* Admin table  */
 .display-admin {
     display: block;
     background-color: var(--light);
@@ -234,7 +236,7 @@
     color: var(--primary);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     outline: none;
-    box-sizing: border-box; /* ✅ added to prevent overflow */
+    box-sizing: border-box;
 }
 
 .modal-form input[type="text"]::placeholder {
@@ -298,14 +300,15 @@
     transform: translateY(0);
 }
 
-/* ── Tablet ── */
+/* Responsiveness  */
+/* Tablet */
 @media (max-width: 1024px) {
     .add-admin {
         padding: 1.5rem 1.75rem;
     }
 }
 
-/* ── Phone ── */
+/* Phone */
 @media (max-width: 767px) {
     .add-admin {
         padding: 1rem;
@@ -337,6 +340,7 @@
     }
 }
 
+/* Small device  */
 @media (max-width: 500px) {
     .modal {
         padding: 1.25rem;

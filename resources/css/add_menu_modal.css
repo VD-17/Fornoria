@@ -1,3 +1,4 @@
+/* Modal overlay  */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -34,6 +35,7 @@
     transform: translateY(0) scale(1);
 }
 
+/* Heading  */
 .modal-header {
     display: flex;
     align-items: center;
@@ -49,6 +51,7 @@
     padding-bottom: 0;
 }
 
+/* Close button  */
 .modal-close {
     background: none;
     border: none;
@@ -64,6 +67,7 @@
     color: var(--accent);
 }
 
+/* Form  */
 .modal-form {
     display: flex;
     flex-direction: column;
@@ -189,6 +193,7 @@
     margin-top: 0.5rem;
 }
 
+/* Cancel button  */
 .btn-cancel {
     padding: 0.55rem 1.4rem;
     background: none;
@@ -206,6 +211,7 @@
     background-color: rgba(0, 0, 0, 0.06);
 }
 
+/* Submit button  */
 .btn-submit {
     padding: 0.55rem 1.4rem;
     background-color: var(--secondary);
@@ -232,15 +238,16 @@
 .modal-form input[type="text"],
 .modal-form input[type="number"],
 .select-wrap select {
-    box-sizing: border-box; /* ✅ prevents overflow on small screens */
+    box-sizing: border-box;
 }
 
+/* Responsiveness  */
 /* ── Tablet ── */
 @media (max-width: 768px) {
     .modal {
-        max-width: 92%;             /* ✅ gives breathing room on tablet */
-        max-height: 90vh;           /* ✅ prevents cut-off on short screens */
-        overflow-y: auto;           /* ✅ allows scroll if content is tall */
+        max-width: 92%;
+        max-height: 90vh;
+        overflow-y: auto;
     }
 }
 

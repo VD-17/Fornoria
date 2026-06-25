@@ -1,6 +1,8 @@
+<!-- Add admin modal  -->
 <div class="modal-overlay" id="addAdminOverlay" aria-hidden="true">
     <div class="modal" id="addAdminModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
 
+        <!-- Heading  -->
         <div class="modal-header">
             <h3 id="modalTitle">Add New Admin</h3>
             <button class="modal-close" id="modalCloseBtn" type="button">
@@ -8,6 +10,7 @@
             </button>
         </div>
 
+        <!-- Add Admin form  -->
         <form action="{{ route('admin.store') }}" method="POST" class="modal-form">
             @csrf
 
@@ -46,6 +49,7 @@
                 </span>
             </div>
 
+            <!-- Action buttons  -->
             <div class="modal-actions">
                 <button type="button" class="btn-cancel" id="modalCancelBtn">Cancel</button>
                 <button type="submit" class="btn-submit">Add Admin</button>

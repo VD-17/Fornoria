@@ -14,6 +14,7 @@
             <i class="fa-solid fa-clock"></i>
             <h5>Upcoming Reservations</h5>
         </div> -->
+        <!-- Reservation table  -->
         <div class="table-scroll">
             <table class="reservation-table">
                 <thead>

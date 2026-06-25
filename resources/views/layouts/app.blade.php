@@ -9,9 +9,11 @@
 @endpush
 
 @section('content')
+    <!-- Overlay  -->
     <div class="nav-overlay" id="navOverlay"></div>
 
     <header>
+        <!-- Top bar  -->
         <div class="topbar">
             <address>
                 <i class="fa-solid fa-location-dot"></i>
@@ -38,13 +40,16 @@
             <hr>
         </div>
 
+        <!-- Header  -->
         <div class="header">
+            <!-- Logo  -->
             <div class="logo">
                 <a href="{{'/'}}" class="logo">
                     <img src="images/icons/fornoria_logo.png" alt="Fornoria - Home">
                 </a>
             </div>
 
+            <!-- Nav links  -->
             <nav class="navbar" id="navbar" aria-label="Main navigation">
                 <button class="nav-close-btn" id="navCloseBtn" aria-label="Close menu">
                     <i class="fa-solid fa-xmark"></i>
@@ -73,6 +78,7 @@
                 </ul>
             </nav>
 
+            <!-- User profile  -->
             @auth
                 <div class="user-profile" id="userProfile" aria-haspopup="true" aria-expanded="false" role="button" tabindex="0">
                     <i class="fa-regular fa-user"></i>
@@ -81,6 +87,7 @@
                         <i class="fa-solid fa-angle-down profile-chevron" id="dropdown"></i>
                     </div>
 
+                    <!-- Dropdown  -->
                     <div class="dropdown-content" id="dropdownContent" role="menu">
                         <a href="{{ route('profile.index') }}" role="menuItem">Profile</a>
                         <a href="{{ route('cart.index') }}" role="menuItem">My Cart</a>
@@ -103,6 +110,7 @@
                 </div>
             @endauth
 
+            <!-- Hamburger menu  -->
             <button class="nav-open-btn" id="navOpenBtn" aria-label="Open menu" aria-expanded="false">
                 <span class="line line-1"></span>
                 <span class="line line-2"></span>
@@ -111,10 +119,12 @@
         </div>
     </header>
 
+    <!-- Main content  -->
     <main>
         @yield('page_content')
     </main>
 
+    <!-- Footer  -->
     <footer>
         <div class="footer-bg-image">
             <img src="images/restaurant/footer.jpeg" alt="">

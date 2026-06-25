@@ -6,6 +6,7 @@
 <body>
     <p>Redirecting to PayFast, please wait...</p>
 
+    <!-- Payfast form  -->
     <form id="payfast-form" action="{{ $payfastUrl }}" method="POST">
         @foreach ($data as $key => $value)
             <input type="hidden" name="{{ $key }}" value="{{ $value }}">

@@ -7,12 +7,15 @@
 
 @section('page_content')
     <article class="track-order">
+        <!-- Title  -->
         <header class="title">
             MY ORDERS
         </header>
 
+        <!-- Order history -->
         <section class="tracking">
             @forelse($orders as $order)
+                <!-- Past order details  -->
                 <div class="order">
                     <div class="ref">
                         <span>Ref: #{{ $order->order_id }}</span>
@@ -40,6 +43,7 @@
                         </p>
                     </div>
 
+                    <!-- Reorder button  -->
                     <div class="reorder-btn">
                         <form action="{{ route('order.reorder', $order->order_id) }}" method="POST">
                             @csrf

@@ -1,3 +1,4 @@
+/* Page layout  */
 .dashboard-container {
     display: flex;
     flex-direction: column;
@@ -6,6 +7,7 @@
     min-height: 100vh;
 }
 
+/* Greetings  */
 .greetings h3 {
     font-size: 2rem;
     font-weight: 700;
@@ -24,6 +26,7 @@
     margin: 0;
 }
 
+/* Statistics  */
 .stats {
     display: flex;
     gap: 16px;
@@ -74,6 +77,7 @@
     color: var(--primary);
 }
 
+/* Order table  */
 .orders {
     background-color: var(--light);
     border-radius: 14px;
@@ -203,6 +207,7 @@
     text-transform: capitalize;
 }
 
+/* responsiveness  */
 @media (max-width: 768px) {
     .dashboard-container {
         padding: 16px;

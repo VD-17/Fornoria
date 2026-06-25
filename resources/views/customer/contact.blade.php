@@ -10,14 +10,17 @@
     <section class="contact section-p1">
 
         <div class="contact-container">
+            <!-- Title  -->
             <header class="title">
                 CONTACT US
             </header>
 
+            <!-- Main form content  -->
             <div class="contact-row">
                 <div class="contact-form-wrap">
                     <h2 id="contact-form-heading" class="sr-only">Send us a message</h2>
 
+                    <!-- Contact form  -->
                     <form action="{{ route('contact.send') }}" method="POST" class="contact-form">
                         @csrf
                         <div>
@@ -66,6 +69,7 @@
                     </form>
                 </div>
 
+                <!-- Restaurant details  -->
                 <aside class="contact-details-c">
                     <h2 id="contact-info-heading" class="sr-only">Contact Information</h2>
                     <section class="details">

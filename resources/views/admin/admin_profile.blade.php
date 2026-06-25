@@ -11,6 +11,7 @@
 @section('admin_page_content')
 
     <div class="profile">
+        <!-- Edit profile  -->
         <div class="edit-profile">
             <h3>Edit Profile</h3>
             <form action="{{ route('admin.profile.edit') }}" method="POST">
@@ -47,6 +48,7 @@
             </form>
         </div>
 
+        <!-- Sign out  -->
         <div class="sign-out">
             <h3>Sign Out</h3>
             <form action="{{ route('logout') }}" method="POST">
@@ -55,6 +57,7 @@
             </form>
         </div>
 
+        <!-- Change password  -->
         <div class="change-password">
             <h3>Change Password</h3>
             <form action="{{ route('admin.change.password') }}" method="POST">

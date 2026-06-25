@@ -9,16 +9,20 @@
 @endpush
 
 @section('content')
+    <!-- Overlay shown behind the side nav when it is open  -->
     <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
     <div class="nav-heading">
+        <!-- side bar navigation  -->
         <aside>
             <div class="side-nav-bar" id="sideNavBar">
+                <!-- Close nav bar for responsiveness  -->
                 <button class="nav-close-btn" id="navCloseBtn" aria-label="Close menu">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
 
                 <div class="logo-wrap">
+                    <!-- Logo  -->
                     <a href="{{ route('admin.index') }}" class="logo-link">
                         <img src="{{ asset('images/icons/fornoria_logo.png') }}" alt="Admin - Dashboard">
                     </a>
@@ -26,6 +30,7 @@
                     <hr class="logo-divider">
                 </div>
 
+                <!-- Main navigation links  -->
                 <nav class="navbar" id="navbar" aria-label="Main navigation">
 
                     <ul class="nav-list {{request()->is('dashboard') ? 'active' : ''}}">
@@ -113,6 +118,7 @@
             </div>
         </aside>
 
+        <!-- Main content  -->
         <div class="main-column">
             <header class="heading-topbar">
                 <button class="nav-open-btn" id="navOpenBtn" aria-label="Open menu" aria-expanded="false">

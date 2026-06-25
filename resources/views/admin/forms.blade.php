@@ -14,6 +14,7 @@
 
 @section('admin_page_content')
     <section class="reservations">
+        <!-- Reservation table  -->
         <div class="table-scroll">
             <table class="reservation-table">
                 <thead>

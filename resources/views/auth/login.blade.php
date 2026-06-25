@@ -9,6 +9,7 @@
 @section('content')
     <section class="register">
         <div class="register-form">
+            <!-- Logo image  -->
             <figure class="logo">
                 <img src="images/icons/fornoria_logo.png" alt="Fornoria">
             </figure>
@@ -16,6 +17,7 @@
             <h2>Login</h2>
 
             <div class="register-columns">
+                <!-- Login form  -->
                 <div class="local">
                     <form action="{{url('/login')}}" method="post">
                         @csrf
@@ -44,12 +46,14 @@
                     </form>
                 </div>
 
+                <!-- Seperator  -->
                 <div class="register-divider">
                     <div class="divider-line"></div>
                     <h3>OR</h3>
                     <div class="divider-line"></div>
                 </div>
 
+                <!-- Google oAuth  -->
                 <div class="google">
                     <a href="{{url('/auth/google/redirect')}}" class="circle" title="Login with Google"><i class="fa-brands fa-google"></i></a>
                 </div>

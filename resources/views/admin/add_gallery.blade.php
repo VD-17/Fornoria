@@ -15,9 +15,11 @@
 @section('admin_page_content')
     <article class="add-item">
 
+        <!-- Title  -->
         <header class="gallery-topbar">
             <div class="gallery-meta">
                 <h3>Add images to Gallery</h3>
+                <!-- Image count  -->
                 <p>
                     @if ($images)
                         {{$images->count()}} images on gallery
@@ -26,12 +28,14 @@
                     @endif
                 </p>
             </div>
+            <!-- Add image button  -->
             <button class="add-btn" id="openAddImageModal">
                 <i class="fa-solid fa-plus"></i>
                 Add Image
             </button>
         </header>
 
+        <!-- Displaying gallery  -->
         <section class="display-gallery">
             @forelse ($images as $image)
                 <div class="gallery-card">
@@ -55,6 +59,7 @@
         </section>
     </article>
 
+    <!-- Add gallery modal  -->
     @include('dialogs.add_image_modal')
 
 @endsection

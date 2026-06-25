@@ -1,3 +1,4 @@
+/* Page layout  */
 .add-item {
     min-height: 100vh;
     /* margin-left: 215px; */
@@ -9,6 +10,7 @@
     background-attachment: fixed;
 }
 
+/* Topbar heading  */
 .menu-topbar {
     display: flex;
     align-items: flex-start;
@@ -30,6 +32,7 @@
     color: #d1cec9;
 }
 
+/* Add button  */
 .add-btn {
     display: inline-flex;
     align-items: center;
@@ -58,12 +61,14 @@
     transform: translateY(0);
 }
 
+/* Display menu  */
 .display-menu {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 1.5rem;
 }
 
+/* Menu item  */
 .menu-item {
     position: relative;
     background-color: #1e1e1e;
@@ -195,6 +200,7 @@
     padding: 3rem 0;
 }
 
+/* Overlay  */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -215,6 +221,7 @@
     visibility: visible;
 }
 
+/* Add menu modal  */
 .modal {
     background-color: var(--light);
     border-radius: 12px;
@@ -425,6 +432,7 @@
     transform: translateY(0);
 }
 
+/* Responsiveness  */
 /* ── Tablet ── */
 @media (max-width: 1024px) {
     .add-item {
@@ -442,7 +450,7 @@
     }
 
     .modal {
-        max-width: 92%;    
+        max-width: 92%;
     }
 }
 

@@ -8,10 +8,13 @@
 
 @section('page_content')
     <article class="reservation">
+        <!-- Title  -->
         <header class="title">
             MY RESERVATIONS
         </header>
 
+        <!-- Main reservation content  -->
+         <!-- View Reservations  -->
         <section class="reservation-items">
             @forelse ($reservations as $reservation)
                 <div class="res-card">
@@ -26,6 +29,7 @@
                         <p><span class="label">For:</span> {{ $reservation->num_people }} people</p>
                     </div>
 
+                    <!-- Cancel reservation  -->
                     <div class="cancel-btn">
                         <form action="{{ route('res.cancel', $reservation->reservation_id) }}" method="POST">
                             @csrf

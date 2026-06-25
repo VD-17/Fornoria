@@ -13,10 +13,12 @@
 @section('page_content')
     <article class="order-container">
         <section class="order-topbar">
+            <!-- Title  -->
             <header class="title">
                 ORDER
             </header>
 
+            <!-- Menu filter options  -->
             <div class="filter-row">
                 <ul class="filter-items" id="filterItems">
                     <li class="filter-item active" data-filter="all">All</li>
@@ -30,6 +32,8 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
                 </button> -->
+                
+                <!-- Cart button  -->
                 <a href="{{ route('cart.index') }}" class="cart-toggle-btn" id="cartToggleBtn" aria-label="Open cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
@@ -37,6 +41,7 @@
             </div>
         </section>
 
+        <!-- Display menu  -->
         <section class="display-menu">
             @forelse ($menuItems as $item)
                 @include('components.menu_item', ['item' => $item, 'showActions' => false, 'showOrder' => true])

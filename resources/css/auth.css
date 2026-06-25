@@ -1,3 +1,4 @@
+/* Page layout  */
 .register {
     min-height: 100vh;
     display: flex;
@@ -10,6 +11,7 @@
     background-repeat: no-repeat;
 }
 
+/* resgistration form  */
 .register-form {
     width: 580px;
     background-color: rgba(255, 249, 240, 0.18);
@@ -120,6 +122,7 @@
     transform: translateY(-1px);
 }
 
+/* Seperator  */
 .register-divider {
     display: flex;
     flex-direction: column;
@@ -144,6 +147,7 @@
     margin: 0;
 }
 
+/* Google  */
 .register-form .google {
     display: flex;
     align-items: center;
@@ -193,6 +197,7 @@
     color: #e8845f;
 }
 
+/* responsiveness  */
 /* ── Tablet ── */
 @media (max-width: 1024px) {
     .register-form {

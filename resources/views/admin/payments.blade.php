@@ -10,6 +10,7 @@
 
 @section('admin_page_content')
     <section class="reservations">
+        <!-- Payments table  -->
         <div class="table-scroll">
             <table class="reservation-table">
                 <thead>

@@ -8,11 +8,14 @@
 
 @section('page_content')
     <article class="about-container">
+        <!-- Title  -->
         <header class="title">
             ABOUT US
         </header>
 
+        <!-- Main about content  -->
         <section class="about">
+            <!-- Description  -->
             <div class="about-details">
                 <h2>Every Flavour Tells A Story</h2>
                 <p>
@@ -31,6 +34,7 @@
                 </p>
             </div>
 
+            <!-- Image  -->
             <figure class="res-image">
                 <img src="images/restaurant/about.png" alt="Fornoria restaurant interior">
             </figure>

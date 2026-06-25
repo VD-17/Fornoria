@@ -15,7 +15,7 @@ body {
     min-height: calc(100vh - 80px);
 }
 
-/* Title box — inherits .title from app.css, just needs margin */
+/* Title box */
 .track-order .title {
     font-family: var(--font-heading);
     font-size: 1.4rem;
@@ -34,7 +34,6 @@ body {
     gap: 24px;
 }
 
-/* Ref row: order ID left, date right */
 .ref {
     display: flex;
     justify-content: space-between;
@@ -71,7 +70,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Order details row: item name + price left, cancel button right */
+/* Order details */
 .order-details {
     display: flex;
     justify-content: space-between;
@@ -120,13 +119,14 @@ body {
     color: var(--primary);
 }
 
+/* Responsiveness  */
 @media (max-width: 600px) {
     .tracking {
         padding: 20px 16px;
     }
 
     .ref {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: flex-start;
         gap: 4px;
         font-size: 0.82rem;

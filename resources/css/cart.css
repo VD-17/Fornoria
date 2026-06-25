@@ -13,6 +13,7 @@
     gap: 40px;
 } */
 
+/* Page layout  */
 .manage-cart {
     display: grid;
     grid-template-columns: 1fr 340px;
@@ -29,6 +30,7 @@
     justify-self: center;
 }
 
+/* Cart  */
 .cart {
     grid-area: cart;
     background: transparent;
@@ -192,6 +194,7 @@
     background: rgba(224, 92, 58, 0.12);
 }
 
+/* Checkout  */
 .checkout {
     background-color: var(--secondary);
     border-radius: 12px;
@@ -347,6 +350,7 @@
     transform: translateY(0);
 }
 
+/* Responsiveness  */
 @media (max-width: 900px) {
     .cart-container {
         padding: 30px 20px 60px;
@@ -364,7 +368,6 @@
         order: 1;
     }
 
-    /* Prevent table overflow in mid-range */
     .cart thead th,
     .cart tbody td {
         padding: 12px 8px;
@@ -422,7 +425,6 @@
         padding: 8px 4px 0;
     }
 
-    /* Column labels since thead is hidden */
     .cart tbody td::before {
         content: attr(data-label);
         position: absolute;

@@ -14,10 +14,14 @@
     <article class="cart-container">
 
         <section class="manage-cart">
+            <!-- Title  -->
             <header class="title">
                 MY CART
             </header>
+
+            <!-- Main cart content  -->
             <div class="cart">
+                <!-- Cart Items  -->
                 @if ($cartItems->isEmpty())
                     <p class="cart-empty-state">Your cart is empty.</p>
                 @else
@@ -81,6 +85,7 @@
                 @endif
             </div>
 
+            <!-- Checkout  -->
             <aside class="checkout">
                 <form action="{{ route('cart.placeOrder') }}" method="POST" id="checkout-form">
                     @csrf
@@ -95,12 +100,14 @@
                         </div>
                     @endif
 
+                    <!-- Cart total  -->
                     <div class="cart-total">
                         <hr>
                         <span>Cart Total: <em id="cart-total-display">R{{ number_format($cartTotal, 0) }}</em></span>
                         <hr>
                     </div>
 
+                    <!-- Delivery method  -->
                     <input type="hidden" name="delivery_method" id="delivery_method_input" value="">
                     <input type="hidden" name="payment_method" id="payment_method_input" value="">
 
@@ -119,6 +126,7 @@
                         <input type="text" name="address" id="address" placeholder="Enter your delivery address">
                     </div>
 
+                    <!-- Payment method  -->
                     <label for="payment">Payment Method:</label>
                     <div class="payment">
                         <button type="button" class="payment-btn" data-value="payfast">
@@ -131,6 +139,7 @@
 
                     <p class="checkout-error" id="checkout-error" style="display:none;"></p>
 
+                    <!-- Place order  -->
                     <div class="place-order-btn">
                         <button type="submit" id="place-order-submit">Place Order</button>
                     </div>

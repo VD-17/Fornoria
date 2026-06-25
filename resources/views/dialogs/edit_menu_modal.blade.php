@@ -1,7 +1,9 @@
+<!-- Edit menu modal  -->
 <div class="modal-overlay" id="editMenuOverlay-{{ $menu->id }}" aria-hidden="true">
 
     <div class="modal" id="editMenuModal-{{ $menu->id }}" role="dialog" aria-modal="true" aria-labelledby="editModalTitle-{{ $menu->id }}">
 
+        <!-- Heading  -->
         <div class="modal-header">
             <h3 id="editModalTitle-{{ $menu->id }}">Edit Menu Item</h3>
             <button type="button" class="modal-close" id="editModalCloseBtn-{{ $menu->id }}">
@@ -9,6 +11,7 @@
             </button>
         </div>
 
+        <!-- Edit menu item form  -->
         <form action="{{ route('menu.update', $menu->id) }}" method="post" enctype="multipart/form-data" class="modal-form">
             @csrf
             @method('PATCH')
@@ -108,6 +111,7 @@
                 </span>
             </div>
 
+            <!-- Action buttons  -->
             <div class="modal-actions">
                 <button type="button" class="btn-cancel" id="editModalCancelBtn-{{ $menu->id }}">Cancel</button>
                 <button type="submit" class="btn-submit">Save Changes</button>

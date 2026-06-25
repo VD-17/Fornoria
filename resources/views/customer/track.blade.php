@@ -8,16 +8,19 @@
 
 @section('page_content')
     <div class="track-order">
+        <!-- Title  -->
         <header class="title">
             TRACK ORDER
         </header>
 
+        <!-- Tracking order  -->
         <div class="tracking">
             <div class="ref">
                 <span>Ref: #{{ $order->order_id }}</span>
                 <span>{{ \Carbon\Carbon::parse($order->orderDate)->format('d M Y, H:i') }}</span>
             </div>
 
+            <!-- Tracking order status  -->
             <div class="track-status">
                 <div class="status">
                     @if ($order->status === 'Pending')
@@ -36,6 +39,7 @@
                 </div>
             </div>
 
+            <!-- Order details  -->
             <div class="order-details">
                 <div class="details">
                     @foreach($order->orderItems as $orderItem)
@@ -44,6 +48,7 @@
                     <span>R{{ number_format($order->totalAmount, 0) }}</span>
                 </div>
 
+                <!-- Cancel order  -->
                 @if ($order->status === 'Preparing')
                     <div class="cancel-btn">
                         <form action="{{ route('order.cancel', $order->order_id) }}" method="POST">
