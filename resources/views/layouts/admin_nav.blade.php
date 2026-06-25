@@ -20,7 +20,7 @@
 
                 <div class="logo-wrap">
                     <a href="{{ route('admin.index') }}" class="logo-link">
-                        <img src="images/icons/fornoria_logo.png" alt="Admin - Dashboard">
+                        <img src="{{ asset('images/icons/fornoria_logo.png') }}" alt="Admin - Dashboard">
                     </a>
                     <span class="admin-label">Admin Panel</span>
                     <hr class="logo-divider">
